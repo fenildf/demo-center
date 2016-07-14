@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -46,3 +46,28 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+### 这些是从 rails 5 标准引用里去掉的 gem
+
+
+
+### 以下是自己添加的 gem
+
+# https://github.com/reactjs/react-rails
+# 引入 reactjs
+gem 'react-rails', '1.8.0'
+
+# 允许 cjsx 语法
+gem 'sprockets-coffee-react', '4.0.0'
+
+# 修正 assets 的冗余 digest 问题
+gem 'non-stupid-digest-assets'
+
+# haml 模板语法支持
+gem 'haml'
+
+# https://github.com/browserify-rails/browserify-rails
+# https://github.com/mindpin/knowledge-camp/issues/170
+gem 'browserify-rails'

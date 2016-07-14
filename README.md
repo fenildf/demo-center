@@ -1,24 +1,19 @@
-# README
+### 这是 MINDPIN KC 知识平台的演示中心工程，该工程用于以下目的：
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- 支持产品特性的在线演示
+- 用来实验一些具有探索性质的设计思路
+- 用来实验一些最新的开发特性
 
-Things you may want to cover:
 
-* Ruby version
+### 运行环境
 
-* System dependencies
+- ruby 2.2.5
 
-* Configuration
 
-* Database creation
+### 运行方法
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+bundle install
+npm install
+rails s -b 0
+```

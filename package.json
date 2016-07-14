@@ -1,0 +1,12 @@
+{
+  "name": "mindpin-demo-center",
+  "dependencies": {
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "coffee-reactify": "~> 5.0.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10"
+  }
+}
