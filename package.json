@@ -3,7 +3,9 @@
   "dependencies": {
     "browserify": "~> 10.2.4",
     "browserify-incremental": "^3.0.1",
-    "coffee-reactify": "~> 5.0.0"
+    "coffee-reactify": "~> 5.0.0",
+
+    "antd": "~> 1.6.4"
   },
   "license": "MIT",
   "engines": {

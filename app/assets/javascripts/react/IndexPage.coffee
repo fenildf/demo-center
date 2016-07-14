@@ -1,3 +1,5 @@
+{ Button } = require 'antd'
+
 module.exports = React.createClass
   render: ->
-    <div>welcome!</div>
+    <Button type='primary'>welcome!</Button>
