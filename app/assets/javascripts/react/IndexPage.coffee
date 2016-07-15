@@ -1,5 +1,5 @@
-{ Button } = require 'antd'
+{ Button } = antd
 
-module.exports = React.createClass
+module.exports = IndexPage = React.createClass
   render: ->
-    <Button type='primary'>welcome!</Button>
+    <Button>hello !</Button>

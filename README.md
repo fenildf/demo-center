@@ -17,3 +17,11 @@ bundle install
 npm install
 rails s -b 0
 ```
+
+### 注意事项
+
+npm install 时的进度条问题  
+https://www.v2ex.com/t/243866
+
+应使用国内镜像安装  
+npm --registry http://npmreg.mirrors.ustc.edu.cn install

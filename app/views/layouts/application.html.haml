@@ -6,10 +6,9 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
     %meta{name: 'renderer', content: 'webkit'}
 
-    %title kc csm
+    %title KC 演示中心
 
     = stylesheet_link_tag 'application', media: 'all', :'data-turbolinks-track' => true
-    = stylesheet_link_tag 'https://npmcdn.com/antd/dist/antd.min.css', media: 'all', :'data-turbolinks-track' => true
 
     = javascript_include_tag 'libs', :'data-turbolinks-track' => true
     = javascript_include_tag 'application', :'data-turbolinks-track' => true
@@ -17,4 +16,10 @@
     = csrf_meta_tags
 
   %body
-    = yield
+    :ruby
+      content_component = {
+        name: 'IndexPage',
+        data: '123'
+      }
+
+    = react_component 'AsideCollapseLayout', content_component: content_component
