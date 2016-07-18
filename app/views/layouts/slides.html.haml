@@ -18,8 +18,8 @@
   %body
     :ruby
       content_component = {
-        name: 'IndexPage',
-        data: '123'
+        name: @component_name,
+        data: @component_data || {}
       }
 
-    = react_component 'AsideCollapseLayout', content_component: content_component
+    = react_component 'AsideCollapseLayout', slides: @slides_data, content_component: content_component

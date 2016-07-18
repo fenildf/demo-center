@@ -5,4 +5,4 @@ window.ClassName = require 'utils/ClassName'
 window.AsideCollapseLayout = require 'react/layouts/AsideCollapseLayout'
 
 # components
-window.IndexPage = require 'react/IndexPage'
+window.SlideShow = require 'react/slides/SlideShow'
