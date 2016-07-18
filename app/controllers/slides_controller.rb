@@ -8,5 +8,8 @@ class SlidesController < ApplicationController
 
   def index
     @component_name = 'SlideShow'
+    @component_data = {
+      slides: @slides_data
+    }
   end
 end

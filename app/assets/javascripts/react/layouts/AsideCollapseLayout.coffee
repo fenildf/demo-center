@@ -35,8 +35,10 @@ module.exports = AsideCollapseLayout = React.createClass
           <div className="ant-layout-content">
             {
               try
-                console.log "render content component: ", @props.content_component.name
-                React.createElement eval(@props.content_component.name), null
+                console.debug "render content component: ", @props.content_component.name
+                component = eval(@props.content_component.name)
+                data = @props.content_component.data
+                React.createElement component, data
               catch e
                 <Alert
                   message='页面组件渲染错误'
@@ -56,6 +58,12 @@ module.exports = AsideCollapseLayout = React.createClass
 
 
 Aside = React.createClass
+  getInitialState: ->
+    key = URI(location.href).fragment()
+    key = @props.slides[0].id if key == ''
+
+    selected_key: key
+
   render: ->
     aside_action =
       <div className='ant-aside-action' onClick={@props.change_collapse}>
@@ -63,7 +71,12 @@ Aside = React.createClass
       </div>
 
     <aside className='ant-layout-sider'>
-      <Menu mode='inline' theme='dark' defaultSelectedKeys={['1']}>
+      <Menu 
+        mode='inline' 
+        theme='dark' 
+        defaultSelectedKeys={[@state.selected_key]}
+        onClick={@open}
+      >
       {
         for slide in @props.slides
           <Menu.Item key={slide.id}>
@@ -74,3 +87,10 @@ Aside = React.createClass
 
       {aside_action}
     </aside>
+
+  open: ({ key, item, keyPath })->
+    url = URI(location.href)
+      .fragment(key)
+      .toString()
+
+    Turbolinks.visit url
