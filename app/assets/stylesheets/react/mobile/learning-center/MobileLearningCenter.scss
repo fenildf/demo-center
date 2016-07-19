@@ -1,0 +1,225 @@
+// 设计参考了：https://dribbble.com/shots/2776966-iOS-Smart-City-App/attachments/566666
+
+$unread-message-color: #F86339;
+
+.mobile-learning-center {
+  position: absolute;
+  top:0;left:0;bottom:0;right:0;
+  background-color: #EEF6FC;
+  font-size: 14px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top:-400px;left:0;right:0;height:510px;
+    background-color: #41C4FE;
+    transform: skew(0, -10deg);
+    pointer-events: none;
+  }
+
+  $header-bar-height: 48px;
+  .header-bar {
+    position: absolute;
+    top:0;left:0;right:0;
+    height:$header-bar-height;line-height:$header-bar-height;
+    font-size: 14px;
+    color: white;
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  $footer-height: 46px;
+  .foot-menu {
+    position: absolute;
+    left:0;right:0;bottom:0;
+    height:$footer-height;border-top: solid 1px #EDF1F6;
+    background-color: #FFF;
+
+    .link-me {
+      position: absolute;
+      background-color: #53E69D;
+      border-radius: 1000px;
+      width:64px;
+      height:64px;
+      top:0;left:0;right:0;bottom:0;
+      margin:auto;
+      color:white;
+      text-align: center;
+      i {font-size: 28px;display: block;line-height:55px;}
+      span {font-size: 12px;display: block;line-height:20px;display:none;}
+    }
+
+    .link {
+      height: 45px;
+      position: absolute;
+      width: 75px;
+      color: #888;
+      text-align: center;
+      i {font-size: 20px;display:block;line-height:45px;font-weight: bold;}
+      span {font-size: 12px;display:block;line-height:12px;display:none;}
+
+      &.l1 {
+        left: 0;
+      }
+      &.l2 {
+        left: 75px;
+      }
+      &.l3 {
+        right: 75px;
+      }
+      &.l4 {
+        right: 0;
+      }
+
+      &.active {
+        background-color: #EEF6FC;
+        // background-color: #D3F2FF;
+        color: #60C3EE;
+        margin-top: -1px;
+        padding-top: 1px;
+      }
+
+      .new-count {
+        background-color: $unread-message-color;
+        width: 20px; height: 20px;
+        line-height: 18px;
+        border:solid 1px white;
+        border-radius: 100%;
+        position: absolute;
+        top:8px;right:15px;
+        color: white;
+        pointer-events: none;
+        font-size: 12px;
+        text-align: center;
+      }
+      &.active .new-count {
+        top: 9px;
+      }
+    }
+  }
+
+  .mobile-content {
+    position: absolute;
+    top: $header-bar-height;
+    bottom: $footer-height;
+    left: 0;
+    right: 0;
+    padding: 14px;
+    padding-top: 10px;
+  }
+}
+
+.mobile-learning-center .shadow-card {
+  background-color: #FFF;
+  box-shadow: 0 5px 15px rgba(black, 0.05);
+}
+
+.mobile-learning-center .user-card {
+  background-color: #FFF;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 14px;
+
+  .detail {
+    position: absolute;
+    top:0;left:0;right:0;height:150px;
+
+    .avatar {
+      background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!120x120") no-repeat;
+      background-position: center center;
+      background-size: cover;
+      width: 120px;
+      height: 120px;
+      position: absolute;
+      top:15px;left:15px;
+    }
+
+    .info {
+      position: absolute;
+      left: 150px;top:0;right:0;bottom:0;
+      padding: 15px;
+      padding-left: 0;
+
+      .base {
+        height: 60px;
+        border-bottom: solid 1px #F1F5F8;
+        .name {font-size: 16px;margin-bottom:5px;}
+        .level {color: #999; font-size: 13px;}
+      }
+      .score {
+        .learned {margin-top: 10px;
+          i {color: #40C2FC;}
+        }
+        .exp {margin-top: 5px;
+          i {color: #FFC076;}
+        }
+      }
+    }
+  }
+
+  .show-stat {
+    height: 50px;
+    border-top: solid 1px #F4F6F7;
+    line-height: 50px;
+    background-color: #F7FBFF;
+    position: absolute;
+    left:0;right:0;bottom:0;
+    color: #3BB5EA;
+    text-align: center;
+    display: block;
+  }
+}
+
+.mobile-learning-center .custom-center-page {
+  min-height: 50px;
+  background-color: #FFF;
+  padding: 15px;
+  text-align: center;
+}
+
+.mobile-learning-center .messages-list {
+  .unread {
+    height: 40px; line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: lighten($unread-message-color, 15%);
+    span.number {
+      color: white;
+      background-color: $unread-message-color;
+      border-radius: 100px;
+      padding:0 8px;
+      margin-left: 8px;
+      position: relative;
+      top: -1px;
+    }
+  }
+  .list {
+    .item {
+      padding: 15px;
+      border-bottom: solid 1px #F6F6F6;
+      &:last-child {
+        border-bottom: 0 none;
+      }
+
+      position: relative;
+
+      .title {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .desc {
+        font-size: 13px; color: #777;
+      }
+      .time {
+        position: absolute;
+        top: 15px; right: 15px;
+        color: #aaa;
+        font-size: 13px;
+      }
+    }
+  }
+}

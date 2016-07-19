@@ -1,3 +1,9 @@
+- id: '0'
+  name: '个人中心'
+  mobile_demos:
+    - name: '个人中心示例'
+      url: '/mobile/learning-center'
+
 - id: '1'
   name: 定位个人知识
 

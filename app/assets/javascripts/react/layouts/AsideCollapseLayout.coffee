@@ -33,20 +33,7 @@ module.exports = AsideCollapseLayout = React.createClass
 
         <div className="ant-layout-container">
           <div className="ant-layout-content">
-            {
-              try
-                console.debug "render content component: ", @props.content_component.name
-                component = eval(@props.content_component.name)
-                data = @props.content_component.data
-                React.createElement component, data
-              catch e
-                <Alert
-                  message='页面组件渲染错误'
-                  description="#{e}"
-                  type='error'
-                  showIcon
-                />
-            }
+            <YieldComponent component={@props.content_component} />
           </div>
         </div>
         <div className="ant-layout-footer">

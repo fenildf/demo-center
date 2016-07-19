@@ -1,4 +1,4 @@
-{ Alert } = antd
+{ Alert, Button, Icon } = antd
 
 module.exports = SlideShow = React.createClass
   getInitialState: ->
@@ -9,7 +9,18 @@ module.exports = SlideShow = React.createClass
     slide: slide
 
   render: ->
+    slide = @state.slide
+
     <div>
       <Alert message='我是演示展示组件' />
-      <Alert message={@state.slide?.name} />
+      <Alert message={slide?.name} />
+      {
+        if slide.mobile_demos?
+          for md, idx in slide.mobile_demos
+            <div key={idx}>
+              <a className='ant-btn ant-btn-primary' href={md.url} target='_blank'>
+                <Icon type='mobile' /> {md.name}
+              </a>
+            </div>
+      }
     </div>
