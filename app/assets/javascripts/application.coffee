@@ -15,3 +15,4 @@ window.MobileLearningCenterLayout = require 'react/mobile/learning-center/Mobile
 window.MobileLearningCenter       = require 'react/mobile/learning-center/MobileLearningCenter'
 window.MobileLearningProgress     = require 'react/mobile/learning-center/MobileLearningProgress'
 window.MobileLearningMessages     = require 'react/mobile/learning-center/MobileLearningMessages'
+window.MobileLearningPlan         = require 'react/mobile/learning-center/MobileLearningPlan'

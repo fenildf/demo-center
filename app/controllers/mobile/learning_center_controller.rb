@@ -22,5 +22,9 @@ class Mobile::LearningCenterController < ApplicationController
     @component_data = {
       messages: messages
     }
+  end
+
+  def plan
+    @component_name = 'MobileLearningPlan'
   end  
 end

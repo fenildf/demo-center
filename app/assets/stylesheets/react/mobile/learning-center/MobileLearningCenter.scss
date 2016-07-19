@@ -22,7 +22,7 @@ $unread-message-color: #F86339;
     position: absolute;
     top:0;left:0;right:0;
     height:$header-bar-height;line-height:$header-bar-height;
-    font-size: 14px;
+    font-size: 16px;
     color: white;
 
     .title {
@@ -142,7 +142,7 @@ $unread-message-color: #F86339;
     top:0;left:0;right:0;height:150px;
 
     .avatar {
-      background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!120x120") no-repeat;
+      background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!240x240") no-repeat;
       background-position: center center;
       background-size: cover;
       width: 120px;
