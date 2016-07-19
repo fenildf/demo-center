@@ -109,6 +109,19 @@ $unread-message-color: #F86339;
     right: 0;
     padding: 14px;
     padding-top: 10px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {  
+      width: 5px;  
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background-color: rgba(white, 0.5);
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: rgba(black, 0.5); 
+    }
   }
 }
 
@@ -199,26 +212,74 @@ $unread-message-color: #F86339;
   }
   .list {
     .item {
-      padding: 15px;
       border-bottom: solid 1px #F6F6F6;
+      &:hover {
+        background-color: #F7FBFF;
+      }
+
       &:last-child {
         border-bottom: 0 none;
       }
 
       position: relative;
 
-      .title {
-        font-weight: bold;
-        margin-bottom: 10px;
+      .ct {
+        position: relative;
+        padding: 15px;
+        cursor: pointer;
+
+        .title {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .desc {
+          font-size: 13px; color: #777;
+        }
+        .time {
+          position: absolute;
+          top: 15px; right: 15px;
+          color: #aaa;
+          font-size: 13px;
+        }
       }
-      .desc {
-        font-size: 13px; color: #777;
+
+      .ops {
+        opacity: 0;
+        overflow: hidden;
+        height: 0;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        padding: 0 15px 0;
+        .op {
+          float: left;
+          border: solid 2px #eee;
+          border-radius: 100px;
+          height: 32px; line-height: 28px;
+          padding: 0 10px;
+          margin-right: 10px;
+          background-color: #FFF;
+
+          &.add {
+            color: #41C4FE;
+            border-color: #41C4FE;
+          }
+          &.later {
+            color: darken(#FFC076, 20%);
+            border-color: darken(#FFC076, 20%);
+          }
+          &.ignore {
+            color: #FF7676;
+            border-color: #FF7676;
+          }
+        }
       }
-      .time {
-        position: absolute;
-        top: 15px; right: 15px;
-        color: #aaa;
-        font-size: 13px;
+
+      &.opened {
+        .ops {
+          opacity: 1;
+          height: auto;
+          padding: 0 15px 15px;
+        }
       }
     }
   }

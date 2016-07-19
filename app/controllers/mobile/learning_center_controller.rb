@@ -10,19 +10,17 @@ class Mobile::LearningCenterController < ApplicationController
   end
 
   def messages
-    # messages = [1, 2, 3, 4, 5, 6, 7].map {|x|
-    #   {
-    #     title: "消息#{x}",
-    #     desc: "描述#{x}" * 10,
-    #     time: "3 小时前"
-    #   }
-    # }
+    messages = [1, 2, 3, 4, 5, 6, 7].map {|x|
+      {
+        title: "消息#{x}",
+        desc: "描述#{x} " * 13,
+        time: "3 小时前"
+      }
+    }
 
-    # @component_name = 'MobileLearningMessages'
-    # @component_data = {
-    #   messages: [1,2,3,4,5,6,7]
-    # }
-
-    render json: @component_data
+    @component_name = 'MobileLearningMessages'
+    @component_data = {
+      messages: messages
+    }
   end  
 end
