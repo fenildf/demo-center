@@ -26,5 +26,9 @@ class Mobile::LearningCenterController < ApplicationController
 
   def plan
     @component_name = 'MobileLearningPlan'
-  end  
+  end
+
+  def subjects
+    @component_name = 'MobileLearningSubjects'
+  end
 end

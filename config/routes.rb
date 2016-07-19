@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/learning-center/progress', to: 'learning_center#progress'
     get '/learning-center/messages', to: 'learning_center#messages'
     get '/learning-center/plan',     to: 'learning_center#plan'
+    get '/learning-center/subjects', to: 'learning_center#subjects'
     # get '/learning-center/login', to: 'learning_center#login'
   end
 end

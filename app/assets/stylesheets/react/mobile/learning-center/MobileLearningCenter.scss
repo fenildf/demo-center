@@ -247,9 +247,10 @@ $unread-message-color: #F86339;
         opacity: 0;
         overflow: hidden;
         height: 0;
-        transition: all 0.3s ease;
+        transition: height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
         overflow: hidden;
         padding: 0 15px 0;
+
         .op {
           float: left;
           border: solid 2px #eee;
@@ -258,18 +259,31 @@ $unread-message-color: #F86339;
           padding: 0 10px;
           margin-right: 10px;
           background-color: #FFF;
+          transition: all 0.3s ease;
 
           &.add {
             color: #41C4FE;
             border-color: #41C4FE;
+            &:hover {
+              color: white;
+              background-color: #41C4FE;
+            }
           }
           &.later {
             color: darken(#FFC076, 20%);
             border-color: darken(#FFC076, 20%);
+            &:hover {
+              color: white;
+              background-color: darken(#FFC076, 20%);
+            }
           }
           &.ignore {
             color: #FF7676;
             border-color: #FF7676;
+            &:hover {
+              color: white;
+              background-color: #FF7676;
+            }
           }
         }
       }

@@ -2,7 +2,7 @@
 
 module.exports = MobileLearningMessages = React.createClass
   render: ->
-    <MobileLearningCenterLayout title='查看更新消息' menu_active={2}>
+    <MobileLearningCenterLayout title='查看更新消息' menu_active={3}>
       <MessagesList messages={@props.messages} />
     </MobileLearningCenterLayout>
 

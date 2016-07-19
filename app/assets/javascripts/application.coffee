@@ -16,3 +16,4 @@ window.MobileLearningCenter       = require 'react/mobile/learning-center/Mobile
 window.MobileLearningProgress     = require 'react/mobile/learning-center/MobileLearningProgress'
 window.MobileLearningMessages     = require 'react/mobile/learning-center/MobileLearningMessages'
 window.MobileLearningPlan         = require 'react/mobile/learning-center/MobileLearningPlan'
+window.MobileLearningSubjects     = require 'react/mobile/learning-center/MobileLearningSubjects'

@@ -2,7 +2,7 @@
 
 module.exports = MobileLearningCenter = React.createClass
   render: ->
-    <MobileLearningCenterLayout title='个人知识中心'>
+    <MobileLearningCenterLayout title='个人面板'>
       <UserCard />
       <CustomCenterPage />
     </MobileLearningCenterLayout>
