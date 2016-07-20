@@ -31,4 +31,8 @@ class Mobile::LearningCenterController < ApplicationController
   def subjects
     @component_name = 'MobileLearningSubjects'
   end
+
+  def subjects_outline
+    @component_name = 'MobileLearningSubjectsOutline'
+  end
 end

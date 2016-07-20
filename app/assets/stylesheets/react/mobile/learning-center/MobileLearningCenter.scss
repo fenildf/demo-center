@@ -1,12 +1,16 @@
 // 设计参考了：https://dribbble.com/shots/2776966-iOS-Smart-City-App/attachments/566666
 
+$header-bar-height: 50px;
+
 $unread-message-color: #F86339;
+$card-hover-color: #F7FBFF;
 
 .mobile-learning-center {
   position: absolute;
   top:0;left:0;bottom:0;right:0;
   background-color: #EEF6FC;
   font-size: 14px;
+  color: #444;
 
   &:before {
     content: "";
@@ -17,7 +21,7 @@ $unread-message-color: #F86339;
     pointer-events: none;
   }
 
-  $header-bar-height: 48px;
+  
   .header-bar {
     position: absolute;
     top:0;left:0;right:0;
@@ -40,7 +44,8 @@ $unread-message-color: #F86339;
 
     .link-me {
       position: absolute;
-      background-color: #53E69D;
+      // background-color: #53E69D;
+      background-color: #41C4FE;
       border-radius: 1000px;
       width:64px;
       height:64px;
@@ -121,6 +126,32 @@ $unread-message-color: #F86339;
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background: rgba(black, 0.5); 
+    }
+  }
+}
+
+.mobile-learning-center.secondary {
+  &:before {
+    content: "";
+    position: absolute;
+    top:-400px;left:0;right:0;height:510px;
+    background-color: #41A1FE;
+    transform: skew(0, 10deg);
+    pointer-events: none;
+  }
+
+  .header-bar {
+    .back-to {
+      position: absolute;
+      color: white;
+      height: $header-bar-height;
+      width: $header-bar-height;
+      line-height: $header-bar-height;
+      text-align: center;
+      top: 0; left: 0;
+      &:hover {
+        background-color: rgba(white, 0.1);
+      }
     }
   }
 }
@@ -214,7 +245,7 @@ $unread-message-color: #F86339;
     .item {
       border-bottom: solid 1px #F6F6F6;
       &:hover {
-        background-color: #F7FBFF;
+        background-color: $card-hover-color;
       }
 
       &:last-child {
@@ -295,6 +326,121 @@ $unread-message-color: #F86339;
           padding: 0 15px 15px;
         }
       }
+    }
+  }
+}
+
+.mobile-learning-center .search-input {
+  position: relative;
+  margin-bottom: 42px;
+
+  input {
+    height: 50px; line-height: 50px;
+    padding: 0 50px 0 15px;
+    background-color: #FFF;
+    border-radius: 4px;
+    border: 0 none;
+    width: 100%;
+
+    box-shadow: 0 5px 10px rgba(black, 0.05);
+
+    &:focus {
+      border: 0 none;
+      background-color: #ffffdc;
+      outline: none;
+    }
+  }
+  i {
+    position: absolute;
+    color: #D6DEE9;
+    line-height: 50px;
+    width: 50px;
+    top:0;right:0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+}
+
+.mobile-learning-center h3 {
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 28px;
+  padding-left: 10px;
+}
+
+.mobile-learning-center .way-card {
+  padding: 15px;
+  margin-bottom: 14px;
+  position: relative;
+  display: block;
+  color: #444;
+
+  &:hover {
+    background-color: $card-hover-color;
+  }
+
+  .ct {
+    margin-left: 60px;
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .desc {
+      font-size: 13px;
+      color: #888;
+    }
+  }
+
+  i {
+    position: absolute;
+    top: 0; left: 0;
+    height: 80px;
+    width: 60px;
+    line-height: 80px;
+    background-color: #41C4FE;
+    color: rgba(white, 0.8);
+    // font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+.mobile-learning-center .knet-header {
+  position: relative;
+
+  .title {
+    padding: 15px;
+    font-weight: bold;
+  }
+  .time {
+    position: absolute;
+    font-size: 13px;
+    color: #999;
+    top: 15px;right: 15px;
+    line-height: 21px;
+  }
+  .image {
+    height: 150px;
+    background-size: cover;
+    background-position: center center;
+  }
+  .desc {
+    padding: 15px;
+  }
+  .stat {
+    border-top: solid 1px #F4F6F7;
+    padding: 10px 15px;
+    overflow: hidden;
+    background-color: $card-hover-color;
+    .s {
+      float: right;
+      margin-left: 15px;
+      margin-right: 15px;
+      font-size: 12px;
+      color: #888;
+      &.s1 i {color: #888;}
+      &.s2 i {color: #888;}
     }
   }
 }

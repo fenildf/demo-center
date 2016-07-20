@@ -27,7 +27,7 @@ FootMenu = React.createClass
 
     <div className='foot-menu'>
       <a className='link-me' href='/mobile/learning-center'>
-        <Icon type='user' /><span>我</span>
+        <Icon type='solution' /><span>我</span>
       </a>
 
       <a className={classes_arr[0]} href='/mobile/learning-center/subjects'>
