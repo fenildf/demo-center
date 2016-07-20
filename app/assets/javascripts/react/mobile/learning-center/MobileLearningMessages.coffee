@@ -39,7 +39,7 @@ MessageItem = React.createClass
         <div className='time'>{message.time}</div>
       </div>
       <div className='ops'>
-        <a className='op add' href='javascript:;'><Icon type='plus' /> 加入计划</a>
+        <a className='op add' href='javascript:;'><Icon type='plus' /> 列入计划</a>
         <a className='op later' href='javascript:;'>稍后提醒</a>
         <a className='op ignore' href='javascript:;'>忽略</a>
       </div>

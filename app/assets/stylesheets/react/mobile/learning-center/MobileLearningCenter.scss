@@ -2,8 +2,62 @@
 
 $header-bar-height: 50px;
 
+$theme-color: #41C4FE;
+
 $unread-message-color: #F86339;
 $card-hover-color: #F7FBFF;
+
+@mixin list_item_icon {
+  position: absolute;
+  top: 0; left: 0;
+  height: 80px;
+  width: 60px;
+  line-height: 80px;
+  background-color: $theme-color;
+  color: rgba(white, 0.8);
+  // font-weight: bold;
+  font-size: 24px;
+}
+
+@mixin list_item {
+  padding: 15px;
+  margin-bottom: 14px;
+  position: relative;
+  display: block;
+  color: #444;
+  height: 80px;
+
+  &:hover {
+    background-color: $card-hover-color;
+  }
+
+  .ct {
+    margin-left: 60px;
+
+    .title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .desc {
+      font-size: 13px;
+      color: #888;
+    }
+  }
+
+  i.icc {
+    @include list_item_icon;
+  }
+}
+
+@mixin pill_button {
+  border: solid 2px #eee;
+  border-radius: 100px;
+  height: 32px; line-height: 28px;
+  padding: 0 10px;
+  margin-right: 10px;
+  background-color: #FFF;
+  transition: all 0.3s ease;
+}
 
 .mobile-learning-center {
   position: absolute;
@@ -16,7 +70,7 @@ $card-hover-color: #F7FBFF;
     content: "";
     position: absolute;
     top:-400px;left:0;right:0;height:510px;
-    background-color: #41C4FE;
+    background-color: $theme-color;
     transform: skew(0, -10deg);
     pointer-events: none;
   }
@@ -45,7 +99,7 @@ $card-hover-color: #F7FBFF;
     .link-me {
       position: absolute;
       // background-color: #53E69D;
-      background-color: #41C4FE;
+      background-color: $theme-color;
       border-radius: 1000px;
       width:64px;
       height:64px;
@@ -135,7 +189,7 @@ $card-hover-color: #F7FBFF;
     content: "";
     position: absolute;
     top:-400px;left:0;right:0;height:510px;
-    background-color: #41A1FE;
+    // background-color: #41A1FE;
     transform: skew(0, 10deg);
     pointer-events: none;
   }
@@ -153,6 +207,10 @@ $card-hover-color: #F7FBFF;
         background-color: rgba(white, 0.1);
       }
     }
+  }
+
+  .mobile-content {
+    bottom: 0;
   }
 }
 
@@ -284,20 +342,14 @@ $card-hover-color: #F7FBFF;
 
         .op {
           float: left;
-          border: solid 2px #eee;
-          border-radius: 100px;
-          height: 32px; line-height: 28px;
-          padding: 0 10px;
-          margin-right: 10px;
-          background-color: #FFF;
-          transition: all 0.3s ease;
+          @include pill_button;
 
           &.add {
-            color: #41C4FE;
-            border-color: #41C4FE;
+            color: $theme-color;
+            border-color: $theme-color;
             &:hover {
               color: white;
-              background-color: #41C4FE;
+              background-color: $theme-color;
             }
           }
           &.later {
@@ -370,44 +422,12 @@ $card-hover-color: #F7FBFF;
 }
 
 .mobile-learning-center .way-card {
-  padding: 15px;
-  margin-bottom: 14px;
-  position: relative;
-  display: block;
-  color: #444;
-
-  &:hover {
-    background-color: $card-hover-color;
-  }
-
-  .ct {
-    margin-left: 60px;
-
-    .title {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .desc {
-      font-size: 13px;
-      color: #888;
-    }
-  }
-
-  i {
-    position: absolute;
-    top: 0; left: 0;
-    height: 80px;
-    width: 60px;
-    line-height: 80px;
-    background-color: #41C4FE;
-    color: rgba(white, 0.8);
-    // font-weight: bold;
-    font-size: 24px;
-  }
+  @include list_item;
 }
 
 .mobile-learning-center .knet-header {
   position: relative;
+  margin-bottom: 28px;
 
   .title {
     padding: 15px;
@@ -424,9 +444,11 @@ $card-hover-color: #F7FBFF;
     height: 150px;
     background-size: cover;
     background-position: center center;
+    margin-bottom: 15px;
   }
   .desc {
     padding: 15px;
+    padding-top: 0;
   }
   .stat {
     border-top: solid 1px #F4F6F7;
@@ -442,5 +464,46 @@ $card-hover-color: #F7FBFF;
       &.s1 i {color: #888;}
       &.s2 i {color: #888;}
     }
+  }
+}
+
+.mobile-learning-center .knet-subjects {
+  .subject {
+    @include list_item;
+  }
+}
+
+.mobile-learning-center .stack-breadcrumb {
+  padding: 15px;
+  margin-bottom: 14px;
+  // border-bottom: solid 1px #f1f1f1;
+  .ant-breadcrumb {
+    font-size: 14px;
+  }
+}
+
+.mobile-learning-center .subject-courses {
+  .add-to-plan {
+    overflow: hidden;
+    margin-bottom: 14px;
+
+    a {
+      @include pill_button;
+      float: left;
+      border: solid 2px $theme-color;
+      height: 36px;
+      line-height: 32px;
+      padding: 0 20px;
+
+      color: white;
+      background-color: $theme-color;
+      // box-shadow: 0 3px 10px rgba(black, 0.1);
+    }
+  }
+  .demo-tip {
+    padding: 15px;
+    background-color: #FFF7E6;
+    color: #666;
+    i {color: #FFAA00;margin-right: 6px;}
   }
 }

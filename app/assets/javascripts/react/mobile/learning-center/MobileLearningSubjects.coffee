@@ -40,7 +40,7 @@ Ways = React.createClass
 WayCard = React.createClass
   render: ->
     <a className='way-card shadow-card' href={@props.link}>
-      <Icon type={@props.icon} />
+      <Icon type={@props.icon} className='icc' />
       <div className='ct'>
         <div className='title'>{@props.title}</div>
         <div className='desc'>{@props.desc}</div>

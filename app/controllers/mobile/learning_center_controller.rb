@@ -33,6 +33,11 @@ class Mobile::LearningCenterController < ApplicationController
   end
 
   def subjects_outline
+    points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+
     @component_name = 'MobileLearningSubjectsOutline'
+    @component_data = {
+      points: points_data
+    }
   end
 end
