@@ -46,11 +46,13 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
 
       {
         if @state.current_children.length
-          <h3>知识构成</h3>
-          <ChildrenSubjects 
-            subjects={@state.current_children} 
-            enter={@enter}
-          />
+          <div>
+            <h3>知识构成</h3>
+            <ChildrenSubjects 
+              subjects={@state.current_children} 
+              enter={@enter}
+            />
+          </div>
         else
           <SubjectCourses />
       }

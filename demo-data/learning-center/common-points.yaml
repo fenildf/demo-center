@@ -1,19 +1,26 @@
 - id: '1'
   name: 职业基础
+  of_my_post: true
   children:
     - id: '1-1'
       name: 职业素质
+      of_my_post: true
       children:
         - id: '1-1-1'
           name: 职业心态
+          of_my_post: true
         - id: '1-1-2'
           name: 职业道德
+          of_my_post: true
         - id: '1-1-3'
           name: 职业意识
+          of_my_post: true
         - id: '1-1-4'
           name: 职业规范
+          of_my_post: true
         - id: '1-1-5'
           name: 职业规划
+          of_my_post: true
 
     - id: '1-2'
       name: 职场技能
@@ -22,25 +29,32 @@
           name: 职场沟通
         - id: '1-2-2'
           name: 人际关系
+          of_my_post: true
         - id: '1-2-3'
           name: 时间管理
+          of_my_post: true
         - id: '1-2-4'
           name: 有效会议
         - id: '1-2-5'
           name: 商务演讲
         - id: '1-2-6'
           name: 职业形象与礼仪
+          of_my_post: true
         - id: '1-2-7'
           name: 主动服务营销
+          of_my_post: true
 
 
 - id: '2'
   name: 专业知识
+  of_my_post: true
   children:
     - id: '2-1'
       name: 职业守则
+      of_my_post: true
     - id: '2-2'
       name: 金融知识
+      of_my_post: true
       children:
         - id: '2-2-1'
           name: 金融市场
@@ -48,8 +62,10 @@
           name: 信用工具
         - id: '2-2-3'
           name: 股票
+          of_my_post: true
     - id: '2-3'
       name: 金融服务产品
+      of_my_post: true
       children:
         - id: '2-3-1'
           name: 银行类
@@ -67,12 +83,14 @@
           name: 中介类
         - id: '2-3-8'
           name: 投资理财类
+          of_my_post: true
     - id: '2-4'
       name: 法律知识
     - id: '2-5'
       name: 行业趋势
     - id: '2-6'
       name: 外汇知识
+      of_my_post: true
 
 
 - id: '3'
