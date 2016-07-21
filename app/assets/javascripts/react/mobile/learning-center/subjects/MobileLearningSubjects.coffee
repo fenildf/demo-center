@@ -7,13 +7,6 @@ module.exports = MobileLearningSubjects = React.createClass
       <Ways />
     </MobileLearningCenterLayout>
 
-Search = React.createClass
-  render: ->
-    <div className='search-input'>
-      <Icon type='search' />
-      <input placeholder={@props.placeholder} />
-    </div>
-
 Ways = React.createClass
   render: ->
     <div className='ways'>
@@ -29,11 +22,13 @@ Ways = React.createClass
         title='按岗位要求'
         desc='掌握岗位工作技能'
         icon='team'
+        link='/mobile/learning-center/subjects/posts'
       />
       <WayCard
         title='按问题目标'
         desc='解决具体问题和任务'
         icon='tags-o'
+        link='/mobile/learning-center/subjects/target'
       />
     </div>
 

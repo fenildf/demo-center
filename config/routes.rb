@@ -9,8 +9,12 @@ Rails.application.routes.draw do
     get '/learning-center/messages', to: 'learning_center#messages'
     get '/learning-center/plan',     to: 'learning_center#plan'
 
-    get '/learning-center/subjects', to: 'learning_center#subjects'
-    get '/learning-center/subjects/outline', to: 'learning_center#subjects_outline'
+    get '/learning-center/subjects',          to: 'learning_center#subjects'
+    get '/learning-center/subjects/outline',  to: 'learning_center#subjects_outline'
+    get '/learning-center/subjects/posts',    to: 'learning_center#subjects_posts'
+    get '/learning-center/subjects/target',   to: 'learning_center#subjects_target'
+    post '/learning-center/target-search',    to: 'learning_center#target_search'
+
     # get '/learning-center/login', to: 'learning_center#login'
   end
 end

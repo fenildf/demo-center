@@ -18,7 +18,7 @@ UserCard = React.createClass
             <div className='level'>客户经理，新手</div>
           </div>
           <div className='score'>
-            <div className='learned'><Icon type='file-text' /> 已学内容：32</div>
+            <div className='learned'><Icon type='book' /> 已学内容：32</div>
             <div className='exp'><Icon type='share-alt' /> 经验贡献：141</div>
           </div>
         </div>

@@ -19,5 +19,8 @@ window.MobileLearningProgress     = require 'react/mobile/learning-center/Mobile
 window.MobileLearningMessages     = require 'react/mobile/learning-center/MobileLearningMessages'
 window.MobileLearningPlan         = require 'react/mobile/learning-center/MobileLearningPlan'
 
-window.MobileLearningSubjects     = require 'react/mobile/learning-center/MobileLearningSubjects'
-window.MobileLearningSubjectsOutline = require "react/mobile/learning-center/MobileLearningSubjectsOutline"
+window.Search                        = require 'react/mobile/learning-center/subjects/Search'
+window.MobileLearningSubjects        = require 'react/mobile/learning-center/subjects/MobileLearningSubjects'
+window.MobileLearningSubjectsOutline = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsOutline'
+window.MobileLearningSubjectsPosts   = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsPosts'
+window.MobileLearningSubjectsTarget  = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsTarget'
