@@ -71,3 +71,10 @@ gem 'haml'
 # https://github.com/browserify-rails/browserify-rails
 # https://github.com/mindpin/knowledge-camp/issues/170
 gem 'browserify-rails'
+
+
+gem "unicorn"
+gem "mina", "0.3.7"
+gem 'mina_util',
+  github: "mindpin/mina_util",
+  ref: "25f36fd"
