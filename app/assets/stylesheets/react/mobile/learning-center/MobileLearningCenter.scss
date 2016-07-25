@@ -587,6 +587,38 @@ $card-hover-color: #F7FBFF;
     .children {
       position: relative;
       left: percentage(1/5);
+
+      .action {
+        position: absolute;
+        top:0;left:- 30px - 14px;
+        width: 30px; height: 30px; 
+        line-height: 30px;
+        // line-height: 26px;
+        // padding-top: 4px;
+        text-align: center;
+        // background-color: rgba($theme-color, 0.5);
+        background-color: #97DDFD;
+        color: white;
+        // border-radius: 100px;
+        border-radius: 3px;
+      }
+
+      .brief {
+        color: #666;
+        display: block;
+        background-color: #FFF;
+        height: 30px; line-height: 30px;
+        margin-bottom: 14px;
+        width: percentage(2/5);
+        padding: 0 10px;
+        font-size: 12px;
+        background-color: $card-hover-color;
+      }
+
+      canvas {
+        position: absolute;
+        pointer-events: none;
+      }
     }
   }
 }
