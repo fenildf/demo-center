@@ -20,6 +20,7 @@ window.MobileLearningMessages     = require 'react/mobile/learning-center/Mobile
 window.MobileLearningPlan         = require 'react/mobile/learning-center/MobileLearningPlan'
 
 window.Search                        = require 'react/mobile/learning-center/subjects/Search'
+window.SubjectsTree                  = require 'react/mobile/learning-center/subjects/SubjectsTree'
 window.MobileLearningSubjects        = require 'react/mobile/learning-center/subjects/MobileLearningSubjects'
 window.MobileLearningSubjectsOutline = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsOutline'
 window.MobileLearningSubjectsPosts   = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsPosts'

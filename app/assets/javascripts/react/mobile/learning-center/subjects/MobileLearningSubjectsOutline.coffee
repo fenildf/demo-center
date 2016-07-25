@@ -29,7 +29,7 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
 
   render: ->
     <MobileLearningCenterSecondaryLayout 
-      title='课程分级导航'
+      title='知识体系导航'
       back_to='/mobile/learning-center/subjects'
     >
       {
@@ -47,10 +47,10 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
       {
         if @state.current_children.length
           <div>
-            <h3>知识构成</h3>
-            <ChildrenSubjects 
-              subjects={@state.current_children} 
-              enter={@enter}
+            <h3>详细知识构成</h3>
+            <SubjectsTree
+              subjects={@state.current_children}
+              _filter={(x)-> true}
             />
           </div>
         else
@@ -74,7 +74,7 @@ StackBreadcrumb = React.createClass
     <div className='stack-breadcrumb shadow-card'>
       <Breadcrumb>
         <Breadcrumb.Item onClick={@enter(null)}>
-          <a href='javascript:;'>银行职业培训</a>
+          <a href='javascript:;'>银行职业知识体系</a>
         </Breadcrumb.Item>
         {
           for subject in @props.stack
@@ -95,7 +95,7 @@ KNetHeader = React.createClass
     imgurl = 'http://i.teamkn.com/i/Ivl1XEL0.jpg'
 
     <div className='knet-header shadow-card'>
-      <div className='title'>银行职业培训</div>
+      <div className='title'>银行职业知识体系</div>
       <div className='time'>更新于：5小时前</div>
       <div className='image' style={backgroundImage: "url(#{imgurl})"} />
       <div className='desc'>银行业从业员工需要掌握的各种知识技能</div>
@@ -124,26 +124,26 @@ PointHeader = React.createClass
       </div>
     </div>
 
-ChildrenSubjects = React.createClass
-  render: ->
-    <div className='knet-subjects'>
-    {
-      for subject, idx in @props.subjects
-        <a key={subject.id} className='subject shadow-card' onClick={@enter(subject)}>
-          <Icon type='pay-circle-o' className='icc'/>
-          <div className='ct'>
-            <div className='title'>{subject.name}</div>
-            <div className='progress'>
-              <Progress percent={66 + idx} />
-            </div>
-          </div>
-        </a>
-    }
-    </div>
+# ChildrenSubjects = React.createClass
+#   render: ->
+#     <div className='knet-subjects'>
+#     {
+#       for subject, idx in @props.subjects
+#         <a key={subject.id} className='subject shadow-card' onClick={@enter(subject)}>
+#           <Icon type='pay-circle-o' className='icc'/>
+#           <div className='ct'>
+#             <div className='title'>{subject.name}</div>
+#             <div className='progress'>
+#               <Progress percent={66 + idx} />
+#             </div>
+#           </div>
+#         </a>
+#     }
+#     </div>
 
-  enter: (subject)->
-    =>
-      @props.enter subject
+#   enter: (subject)->
+#     =>
+#       @props.enter subject
 
 
 SubjectCourses = React.createClass

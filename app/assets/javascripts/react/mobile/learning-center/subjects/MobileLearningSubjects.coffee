@@ -2,7 +2,7 @@
 
 module.exports = MobileLearningSubjects = React.createClass
   render: ->
-    <MobileLearningCenterLayout title='课程中心' menu_active={1}>
+    <MobileLearningCenterLayout title='知识中心' menu_active={1}>
       <Search placeholder='根据标题，内容搜索课程或问题' />
       <Ways />
     </MobileLearningCenterLayout>
@@ -13,19 +13,19 @@ Ways = React.createClass
       <h3>选择一种查找方式</h3>
 
       <WayCard
-        title='按分级导航'
+        title='按知识体系导航'
         desc='全面系统地进行学习'
         icon='book'
         link='/mobile/learning-center/subjects/outline'
       />
       <WayCard
-        title='按岗位要求'
+        title='按通用岗位要求'
         desc='掌握岗位工作技能'
         icon='team'
         link='/mobile/learning-center/subjects/posts'
       />
       <WayCard
-        title='按问题目标'
+        title='按实际问题目标'
         desc='解决具体问题和任务'
         icon='tags-o'
         link='/mobile/learning-center/subjects/target'

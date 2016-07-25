@@ -282,7 +282,8 @@ $card-hover-color: #F7FBFF;
     top:0;left:0;right:0;height:150px;
 
     .avatar {
-      background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!240x240") no-repeat;
+      // background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!240x240") no-repeat;
+      background: url("http://i.teamkn.com/i/M4mUaDaT.png?imageMogr2/thumbnail/!240x240") no-repeat;
       background-position: center center;
       background-size: cover;
       width: 120px;
@@ -527,16 +528,19 @@ $card-hover-color: #F7FBFF;
     height: 80px;
 
     .avatar {
-      background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!100x100") no-repeat;
+      // background: url("http://i.teamkn.com/i/xVDQPKZL.png?imageMogr2/thumbnail/!100x100") no-repeat;
+      background: url("http://i.teamkn.com/i/M4mUaDaT.png?imageMogr2/thumbnail/!100x100") no-repeat;
       background-position: center center;
       background-size: cover;
       width: 60px;
       height: 60px;
       position: absolute;
       top:10px;left:10px;
+      overflow: hidden;
+      // border-radius: 100%;
     }
     .ct {
-      margin-left: 60px;
+      margin-left: 65px;
       .name {
         font-weight: bold;
         font-weight: 14px;

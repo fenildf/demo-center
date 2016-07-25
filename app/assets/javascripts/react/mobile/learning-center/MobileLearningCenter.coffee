@@ -14,7 +14,7 @@ UserCard = React.createClass
         <div className='avatar' />
         <div className='info'>
           <div className='base'>
-            <div className='name'>王小峰</div>
+            <div className='name'>宋亮</div>
             <div className='level'>客户经理，新手</div>
           </div>
           <div className='score'>
