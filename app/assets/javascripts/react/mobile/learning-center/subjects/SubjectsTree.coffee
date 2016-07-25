@@ -33,7 +33,11 @@ Subject = React.createClass
           </div>
         </div>
       </a>
-      <SubjectChildren subjects={subjects} _filter={@props._filter} />
+      <SubjectChildren 
+        subjects={subjects} 
+        _filter={@props._filter}
+        parent_component={@props.parent_component}
+      />
     </div>
 
 SubjectChildren = React.createClass
@@ -44,37 +48,60 @@ SubjectChildren = React.createClass
     if @props.subjects.length is 0
       <div />
 
-    else if @state.collapse
-      <div className='children collapse'>
-        <a className='action' onClick={@toggle}><Icon type='right' /></a>
-        <a className='brief' onClick={@toggle}>{@props.subjects.length} 个下层知识点…</a>
-      </div>
     else
-      <div className='children' ref='children'>
+      classes = ClassName
+        'children': true
+        'collapse': @state.collapse
+
+      action =
+        <a className='action' onClick={@toggle}>
+        {
+          if @state.collapse
+            <Icon type='right' />
+          else
+            <Icon type='down' />
+        }
+        </a>
+
+
+      <div className={classes} ref='children'>
         <canvas ref='canvas' />
-        <a className='action' onClick={@toggle}><Icon type='down' /></a>
+        {action}
+
+        <a className='brief' onClick={@toggle}>{@props.subjects.length} 个下层知识点…</a>
+
+        <div className='subjects'>
         {
           for subject in @props.subjects
             <Subject 
               key={subject.id} 
               subject={subject} 
               _filter={@props._filter}
+              parent_component={@}
             />
         }
+        </div>
       </div>
 
   toggle: ->
     @setState collapse: not @state.collapse
 
   componentDidUpdate: ->
-    return if @state.collapse
+    @draw()
 
+  draw: ->
+    if not @state.collapse
+      @resize_canvas()
+      @drawline()
+    @props.parent_component?.draw()
+
+  resize_canvas: ->
     canvas_dom = ReactDOM.findDOMNode @refs.canvas
     $children = jQuery ReactDOM.findDOMNode @refs.children
+    
+    children_height = $children.height()
 
-    height = $children.height()
-
-    canvas_dom.height = height
+    canvas_dom.height = children_height
     canvas_dom.width = 50
 
     jQuery(canvas_dom)
@@ -82,15 +109,16 @@ SubjectChildren = React.createClass
         left: -44
         top: 0
 
+  drawline: ->
+    canvas_dom = ReactDOM.findDOMNode @refs.canvas
     ctx = canvas_dom.getContext '2d'
-    # ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)'
     ctx.strokeStyle = '#ccc'
     ctx.lineWidth = 2
 
-    console.log $children.find('.subject')
-
+    $children = jQuery ReactDOM.findDOMNode @refs.children
     ctop = $children.offset().top
-    $children.find('.subject').each (idx, subject)->
+
+    $children.find('> .subjects > .subject').each (idx, subject)->
       top = jQuery(subject).offset().top - ctop
       
       ctx.beginPath()

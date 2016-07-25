@@ -10,6 +10,9 @@ module.exports = MobileLearningSubjectsPosts = React.createClass
       back_to='/mobile/learning-center/subjects'
     >
       <MyPost post={@state.my_post} />
+      <div className='show-all-post'>
+        <a href='/mobile/learning-center/subjects/posts/all'><Icon type='up' /> 查看全部岗位要求</a>
+      </div>
       <h3>{@state.my_post.name} · 岗位通用知识要求</h3>
       <SubjectsTree
         subjects={@props.points}

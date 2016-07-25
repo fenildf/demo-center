@@ -59,6 +59,22 @@ $card-hover-color: #F7FBFF;
   transition: all 0.3s ease;
 }
 
+@mixin pill_color_button($color) {
+  @include pill_button;
+
+  border: 0 none;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 20px;
+
+  color: white;
+  background-color: $color;
+
+  &:hover {
+    background-color: lighten($color, 10%);
+  }
+}
+
 @mixin subject_header {
   position: relative;
   margin-bottom: 28px;
@@ -497,16 +513,8 @@ $card-hover-color: #F7FBFF;
     margin-bottom: 14px;
 
     a {
-      @include pill_button;
+      @include pill_color_button($theme-color);
       float: left;
-      border: solid 2px $theme-color;
-      height: 36px;
-      line-height: 32px;
-      padding: 0 20px;
-
-      color: white;
-      background-color: $theme-color;
-      // box-shadow: 0 3px 10px rgba(black, 0.1);
     }
   }
   .demo-tip {
@@ -561,6 +569,16 @@ $card-hover-color: #F7FBFF;
   }
 }
 
+.mobile-learning-center .show-all-post {
+  margin-bottom: 28px;
+  text-align: center;
+  a {
+    @include pill_color_button($theme-color);
+    display: inline-block;
+    i {margin-right: 10px;}
+  }
+}
+
 .mobile-learning-center .subjects-tree {
   overflow-x: hidden;
   .subject {
@@ -605,7 +623,6 @@ $card-hover-color: #F7FBFF;
 
       .brief {
         color: #666;
-        display: block;
         background-color: #FFF;
         height: 30px; line-height: 30px;
         margin-bottom: 14px;
@@ -613,11 +630,18 @@ $card-hover-color: #F7FBFF;
         padding: 0 10px;
         font-size: 12px;
         background-color: $card-hover-color;
+        display: none;
       }
 
       canvas {
         position: absolute;
         pointer-events: none;
+      }
+
+      &.collapse {
+        canvas {display: none;}
+        > .subjects {display: none;}
+        .brief {display: block;}
       }
     }
   }

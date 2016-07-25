@@ -52,6 +52,10 @@ class Mobile::LearningCenterController < ApplicationController
     }
   end
 
+  def subjects_posts_all
+    @component_name = 'MobileLearningSubjectsPostsAll'
+  end
+
   def subjects_target
     @component_name = 'MobileLearningSubjectsTarget'
     @component_data = {
