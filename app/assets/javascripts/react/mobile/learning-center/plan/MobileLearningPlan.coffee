@@ -9,10 +9,25 @@ module.exports = MobileLearningPlan = React.createClass
     >
       <Search placeholder='在计划夹中搜索' />
 
-      <h3>我的计划夹</h3>
+      <h3>自定义计划夹</h3>
       <Plans
         plans={@props.plans}
       />
+
+      <h3 style={marginTop: 28}>规定计划夹</h3>
+      <div className='plans must'>
+        <a className='plan shadow-card'>
+          <Icon type='lock' className='icc' />
+          <div className='ct'>
+            <div className='title'>入职必读规范</div>
+            <div className='desc'>6 个知识点</div>
+          </div>
+          <div className='pgs'>
+            <Progress type="circle" percent={80} width={60} strokeWidth={10} />
+          </div>
+          <div className='from'>来自：人力资源部门</div>
+        </a>
+      </div>
     </MobileLearningCenterLayout>
 
 Plans = React.createClass

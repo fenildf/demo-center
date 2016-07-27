@@ -23,6 +23,12 @@ updating:
         name: '商务礼仪'
         reason: '它对你最近的问题有所帮助'
 
+    - by: 'mbot'
+      text: '获得了新的规定学习计划'
+      new_plan: 
+        name: '互联网金融'
+        reason: '它与即将开展的新业务有关'
+
   responses:
     any:
       - by: 'mbot'

@@ -33,6 +33,10 @@ Subject = React.createClass
             <Progress percent={66} />
           </div>
         </div>
+        {
+          if subject.new
+            <div className='is-new'>new</div>
+        }
       </a>
       <SubjectChildren 
         subject={subject}

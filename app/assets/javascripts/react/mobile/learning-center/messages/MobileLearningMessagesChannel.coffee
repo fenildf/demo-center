@@ -43,6 +43,10 @@ Detail = React.createClass
           <Icon className='l' type='arrow-left' onClick={@close}/>
           <Icon className='r' type='star-o' />
         </div>
+        <div className='share-to'>
+          <div className='to to-weixin'>转发到微信</div>
+          <div className='to to-weibo'>转发到微博</div>
+        </div>
         <div className='message-content'>
           <ChatBox.Message 
             message={@props.message} talker={talker} 
@@ -57,7 +61,17 @@ Detail = React.createClass
         {
           if @props.message.new_point
             url = "/mobile/learning-center/subjects/outline#2-7"
-            <a className='detail-btn' href={url}><Icon type='eye' />查看知识点</a>
+            <div>
+              <div>
+                <a className='detail-btn' href={url}><Icon type='eye' />查看知识点</a>
+              </div>
+              <div>
+                <a className='detail-btn accept'><Icon type='plus' />列入学习计划</a>
+              </div>
+              <div>
+                <a className='detail-btn ignore'><Icon type='delete' />不再提醒</a>
+              </div>
+            </div>
         }
         {
           if @props.message.notice

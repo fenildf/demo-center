@@ -663,7 +663,8 @@ $card-hover-color: #F7FBFF;
 }
 
 .mobile-learning-center .subjects-tree {
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  // overflow-y: visible;
   .subject {
     .info {
       @include list_item;
@@ -683,6 +684,16 @@ $card-hover-color: #F7FBFF;
       height: $h;
       .ct {
         margin-left: 40px;
+      }
+
+      .is-new {
+        position: absolute;
+        top: -5px; right: 5px;
+        background-color: $unread-message-color;
+        color: white;
+        border-radius: 100px;
+        font-size: 12px;
+        padding: 0 10px;
       }
     }
     .children {
@@ -975,7 +986,7 @@ $card-hover-color: #F7FBFF;
             background-color: $card-hover-color;
             border-radius: 0 0 4px 4px;
 
-            .point {
+            .point, .plan {
               @include list_item;
               float: left;
               clear: both;
@@ -999,6 +1010,21 @@ $card-hover-color: #F7FBFF;
               .ct .title {
                 margin-bottom: 0;
                 line-height: 40px;
+              }
+            }
+
+            .plan {
+              i.icc {
+                background-color: $unread-message-color;
+                width: 50px;
+                &:after {
+                  content: "";
+                  border-top: solid 21px transparent;
+                  border-bottom: solid 21px transparent;
+                  border-left: solid 10px $unread-message-color;
+                  position: absolute;
+                  top:0;left:50px;
+                }
               }
             }
 
@@ -1164,6 +1190,21 @@ $card-hover-color: #F7FBFF;
   .plan {
     @include plan_item;
   }
+  &.must .plan {
+    height: 122px;
+    i.icc {
+      background-color: $unread-message-color;
+      &:after {
+        border-left-color: $unread-message-color;
+      }
+    }
+    .from {
+      padding: 10px 15px;
+      background-color: $card-hover-color;
+      margin: 15px -15px -15px -15px;
+      border-top: solid 1px #f1f1f1;
+    }
+  }
 }
 
 .mobile-learning-center .plan-header {
@@ -1311,6 +1352,46 @@ $card-hover-color: #F7FBFF;
     i.r {top:0;right:0;}
   }
 
+  .share-to {
+    position: absolute;
+    left:0;bottom:0;right:0;height:50px;
+    padding: 10px 15px;
+    text-align: right;
+    border-top: solid 1px #f1f1f1;
+    .to {
+      @include dark_pill_button;
+      position: static;
+      display: inline-block;
+      height: 30px; line-height: 30px;
+      margin-left: 15px;
+      position: relative;
+      padding-left: 35px;
+      top:0;left:0;
+      &.to-weixin {
+        background-color: #4CC85E;
+        &:before {
+          content: "";
+          width: 24px; height: 24px;
+          background-image: url('http://i.teamkn.com/i/WDvFpTW0.png?imageMogr2/thumbnail/!24x24');
+          border-radius: 100px;
+          position: absolute;
+          top:3px;left:3px;
+        }
+      }
+      &.to-weibo {
+        background-color: #D52C29;
+        &:before {
+          content: "";
+          width: 24px; height: 24px;
+          background-image: url('http://i.teamkn.com/i/CmPA0DQl.png?imageMogr2/thumbnail/!24x24');
+          border-radius: 100px;
+          position: absolute;
+          top:3px;left:3px;
+        }
+      }
+    }
+  }
+
   .detail-btns {
     padding: 15px 0;
     a.detail-btn {
@@ -1319,6 +1400,14 @@ $card-hover-color: #F7FBFF;
       display: inline-block;
       height: 32px; line-height: 32px;
       margin-left: 80px;
+      margin-bottom: 14px;
+
+      &.accept {
+        background-color: $theme-color;
+      }
+      &.ignore {
+        background-color: lighten($unread-message-color, 10%);
+      }
     }
   }
 
@@ -1380,7 +1469,7 @@ $card-hover-color: #F7FBFF;
             overflow: hidden;
             border-radius: 0 0 4px 4px;
 
-            .point {
+            .point, .plan {
               @include list_item;
               float: left;
               clear: both;
@@ -1404,6 +1493,21 @@ $card-hover-color: #F7FBFF;
               .ct .title {
                 margin-bottom: 0;
                 line-height: 40px;
+              }
+            }
+
+            .plan {
+              i.icc {
+                background-color: $unread-message-color;
+                width: 50px;
+                &:after {
+                  content: "";
+                  border-top: solid 21px transparent;
+                  border-bottom: solid 21px transparent;
+                  border-left: solid 10px $unread-message-color;
+                  position: absolute;
+                  top:0;left:50px;
+                }
               }
             }
 

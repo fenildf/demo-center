@@ -164,3 +164,20 @@
           name: 凭证管理
         - id: '3-2-10'
           name: 公共交易
+
+- id: '4'
+  new: true
+  name: '互联网金融'
+  children:
+    - id: '4-1'
+      new: true
+      name: '众筹'
+    - id: '4-2'
+      new: true
+      name: '网络借贷'
+    - id: '4-3'
+      new: true
+      name: '电子支付'
+    - id: '4-4'
+      new: true
+      name: '网络营销'

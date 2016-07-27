@@ -137,6 +137,12 @@ Message = React.createClass
               </div>
           }
           {
+            if message.new_plan?
+              <div className='attach'>
+                <Plan plan={message.new_plan} />
+              </div>
+          }
+          {
             if message.updated_point?
               <div className='attach'>
                 <Point point={message.updated_point} />
@@ -209,6 +215,23 @@ Point = React.createClass
       {
         if @props.point?.reason?
           <div className='reason'>{@props.point.reason}</div>
+      }
+    </div>
+
+Plan = React.createClass
+  render: ->
+    console.log @props.plan
+
+    <div>
+      <div className='plan'>
+        <Icon type='lock' className='icc'/>
+        <div className='ct'>
+          <div className='title'>{@props.plan?.name}</div>
+        </div>
+      </div>
+      {
+        if @props.plan?.reason?
+          <div className='reason'>{@props.plan.reason}</div>
       }
     </div>
 
