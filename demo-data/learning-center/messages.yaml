@@ -1,0 +1,87 @@
+updating:
+  channel:
+    name: '# 内容更新'
+    desc: '通过这个频道接收学习计划的更新消息，以及最新的推荐内容。'
+
+  messages:
+    - by: 'me'
+      text: '这是一个 DEMO'
+
+    - by: 'mbot'
+      text: '学习计划中的知识点已更新'
+      updated_point: 
+        name: '理财产品'
+
+    - by: 'mbot'
+      text: '学习计划中的知识点已更新'
+      updated_point: 
+        name: '电话营销'
+
+    - by: 'mbot'
+      text: '建议学习新的知识点'
+      new_point: 
+        name: '商务礼仪'
+        reason: '它对你最近的问题有所帮助'
+
+
+notice:
+  channel:
+    name: '# 企业通知'
+    desc: '通过这个频道接收会议，活动安排等通知或公示'
+
+  messages:
+    - by: 'me'
+      text: '这是一个 DEMO'
+
+    - by: 'nbot'
+      text: '会议通知'
+
+    - by: 'nbot'
+      text: '线下讲座通知'
+
+    - by: 'nbot'
+      text: '6 月优秀员工公示'
+
+practice:
+  channel:
+    name: '# 学习与练习'
+    desc: '通过这个频道随时随地进行碎片化阅读和测验练习'
+
+  messages:
+    - by: 'me'
+      text: '这是一个 DEMO'
+
+    - by: 'pbot'
+      text: '请选择要进行的内容'
+
+points:
+  channel:
+    name: '# 知识频道：银行职业知识体系'
+    desc: '通过这个频道进行交流与讨论'
+
+  messages:
+    - by: 'me'
+      text: '这是一个 DEMO'
+
+    - by: 'u1'
+      text: '大家下午好'
+
+    - by: 'u2'
+      text: '分享了一张照片'
+      photo:
+        url: 'http://i.teamkn.com/i/LfxtGNI0.jpg'
+        surl: 'http://i.teamkn.com/i/LfxtGNI0.jpg?imageMogr2/thumbnail/!200x200'
+
+    - by: 'me'
+      text: '评论了李四分享的照片'
+      comment: '拍的不错'
+
+    - by: 'me'
+      text: '提出了一个问题'
+      question: 
+        content: '怎样约见客户？'
+        tags:
+          - 理财产品
+          - 客户
+          - 营销
+

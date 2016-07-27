@@ -10,7 +10,7 @@ module.exports = MobileLearningSubjects = React.createClass
 Ways = React.createClass
   render: ->
     <div className='ways'>
-      <h3>选择一种查找方式</h3>
+      <h3>选择一种内容获取方式</h3>
 
       <WayCard
         title='按知识体系导航'

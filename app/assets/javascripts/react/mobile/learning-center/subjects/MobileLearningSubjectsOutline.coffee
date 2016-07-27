@@ -100,6 +100,13 @@ KNetHeader = React.createClass
       <div className='image' style={backgroundImage: "url(#{imgurl})"} />
       <div className='desc'>银行业从业员工需要掌握的各种知识技能</div>
       <div className='stat'>
+        {
+          href = "/mobile/learning-center/messages/points"
+          <a className='enter-channel' href={href}>
+            <Icon type='right' /> 进入互动频道
+          </a>
+        }
+
         <div className='s s2'>
           <Icon type='message' /> 27
         </div>
@@ -115,6 +122,12 @@ PointHeader = React.createClass
       <div className='title'>{@props.point.name}</div>
       <div className='time'>更新于：5小时前</div>
       <div className='stat'>
+        {
+          href = "/mobile/learning-center/messages/point-#{@props.point.id}"
+          <a className='enter-channel' href={href}>
+            <Icon type='right' /> 进入互动频道
+          </a>
+        }
         <div className='s s2'>
           <Icon type='message' /> 27
         </div>

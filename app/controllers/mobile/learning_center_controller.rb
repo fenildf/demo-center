@@ -14,14 +14,14 @@ class Mobile::LearningCenterController < ApplicationController
     @component_data = {}
   end
 
-  def messages_updating
+  def messages_channel
     talkers = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'talkers.yaml')
-    messages = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'updating-messages.yaml')
+    messages = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'messages.yaml')
 
-    @component_name = 'MobileLearningMessagesUpdating'
+    @component_name = 'MobileLearningMessagesChannel'
     @component_data = {
       talkers: talkers,
-      messages: messages
+      messages: messages[params[:channel]]
     }
   end
 

@@ -2,7 +2,7 @@
 
 module.exports = ChatBox = React.createClass
   getInitialState: ->
-    messages: @props.messages
+    messages: @props.messages.messages
 
   render: ->
     <div className='chatbox'>
@@ -55,7 +55,7 @@ module.exports = ChatBox = React.createClass
 
       render: ->
         <div className='messages'>
-          <div className='date'><span>今天</span></div>
+          <div className='date'><span>2016 年 7 月 26 日</span></div>
           {
             for message, idx in @state.messages
               talker = @props.talkers[message.by]
@@ -80,13 +80,25 @@ Message = React.createClass
           {
             if message.new_point?
               <div className='attach'>
-                <Point name={message.new_point} />
+                <Point point={message.new_point} />
               </div>
           }
           {
             if message.updated_point?
               <div className='attach'>
-                <Point name={message.updated_point} />
+                <Point point={message.updated_point} />
+              </div>
+          }
+          {
+            if message.photo?
+              <div className='attach'>
+                <Photo photo={message.photo} />
+              </div>
+          }
+          {
+            if message.comment?
+              <div className='comment'>
+                <Icon className='c' type='message' /> {message.comment}
               </div>
           }
         </div>
@@ -96,9 +108,21 @@ Message = React.createClass
 
 Point = React.createClass
   render: ->
-    <div className='point'>
-      <Icon type='pay-circle-o' className='icc'/>
-      <div className='ct'>
-        <div className='title'>{@props.name}</div>
+    <div>
+      <div className='point'>
+        <Icon type='pay-circle-o' className='icc'/>
+        <div className='ct'>
+          <div className='title'>{@props.point?.name}</div>
+        </div>
       </div>
+      {
+        if @props.point?.reason?
+          <div className='reason'>{@props.point.reason}</div>
+      }
+    </div>
+
+Photo = React.createClass
+  render: ->
+    console.log @props.photo.surl
+    <div className='photo' style={backgroundImage: "url(#{@props.photo.surl})"}>
     </div>

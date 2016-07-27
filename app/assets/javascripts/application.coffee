@@ -29,6 +29,6 @@ window.MobileLearningSubjectsTarget   = require 'react/mobile/learning-center/su
 
 
 window.MobileLearningMessages         = require 'react/mobile/learning-center/messages/MobileLearningMessages'
-window.MobileLearningMessagesUpdating = require 'react/mobile/learning-center/messages/MobileLearningMessagesUpdating'
+window.MobileLearningMessagesChannel  = require 'react/mobile/learning-center/messages/MobileLearningMessagesChannel'
 
 window.ChatBox = require 'react/mobile/learning-center/chatbox/ChatBox'

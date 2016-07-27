@@ -14,17 +14,31 @@ Boxes = React.createClass
       <h3>系统频道</h3>
 
       <div className='box-list'>
-        <Box new name='# 内容更新消息' icon='message' href='/mobile/learning-center/messages/updating' />
-        <Box new name='# 企业通知' icon='notification' />
-        <Box new name='# 练习测验' icon='check' />
+        <Box new name='# 内容更新' icon='message' 
+          channel='updating' />
+        <Box new name='# 企业通知' icon='notification' 
+          channel='notice' />
+        <Box name='# 学习与练习' icon='check'
+          channel='practice' />
       </div>
 
       <h3>知识频道</h3>
+      <div className='box-list'>
+        <Box new name='# 金融服务产品' icon='book' 
+          channel='point-2-3' />
+        <Box name='# 法律知识' icon='book' 
+          channel='point-2-4' />
+        <Box name='# 时间管理' icon='book'
+          channel='point-1-2-3' />
+      </div>
+
     </div>
 
 Box = React.createClass
   render: ->
-    <a className='box shadow-card' href={@props.href}>
+    href = "/mobile/learning-center/messages/#{@props.channel}"
+
+    <a className='box shadow-card' href={href}>
       {
         if @props.new
           <div className='new'>new</div>

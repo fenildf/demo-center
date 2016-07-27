@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     post '/learning-center/target-search',      to: 'learning_center#target_search'
 
     get '/learning-center/messages', to: 'learning_center#messages'
-    get '/learning-center/messages/updating', to: 'learning_center#messages_updating'
+    get '/learning-center/messages/:channel', to: 'learning_center#messages_channel'
 
     # get '/learning-center/login', to: 'learning_center#login'
   end
