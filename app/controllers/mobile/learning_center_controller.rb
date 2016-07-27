@@ -10,16 +10,17 @@ class Mobile::LearningCenterController < ApplicationController
   end
 
   def messages
-    messages = [1, 2, 3, 4, 5, 6, 7].map {|x|
-      {
-        title: "消息#{x}",
-        desc: "描述#{x} " * 13,
-        time: "3 小时前"
-      }
-    }
-
     @component_name = 'MobileLearningMessages'
+    @component_data = {}
+  end
+
+  def messages_updating
+    talkers = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'talkers.yaml')
+    messages = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'updating-messages.yaml')
+
+    @component_name = 'MobileLearningMessagesUpdating'
     @component_data = {
+      talkers: talkers,
       messages: messages
     }
   end

@@ -236,6 +236,7 @@ $card-hover-color: #F7FBFF;
     padding: 14px;
     padding-top: 10px;
     overflow-y: auto;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {  
       width: 5px;  
@@ -251,7 +252,7 @@ $card-hover-color: #F7FBFF;
   }
 }
 
-.mobile-learning-center.secondary {
+.mobile-learning-center.secondary, .mobile-learning-center.chat {
   &:before {
     content: "";
     position: absolute;
@@ -278,6 +279,46 @@ $card-hover-color: #F7FBFF;
 
   .mobile-content {
     bottom: 0;
+  }
+
+  .sendbox {
+    position: absolute;
+    left:0; right: 0; bottom: 0;
+    height: 50px;
+    background-color: white;
+    box-shadow: 0 -5px 15px rgba(black, 0.2);
+
+    input {
+      position: absolute;
+      top:0;left:0;border:0 none;
+      height: 50px;
+      line-height: 22px;
+      padding: 14px;
+      width:calc(100% - 50px);
+      outline:none;
+    }
+    i.send {
+      font-weight: bold;
+      position: absolute;
+      top:0;right:0;width:50px;height:50px;line-height:50px;
+      text-align: center;
+      font-size: 25px;
+      &:hover {
+        background-color: $card-hover-color;
+      }
+    }
+  }
+}
+
+.mobile-learning-center.chat {
+  &:before {
+    display: none;
+  }
+  .header-bar {
+    background-color: $theme-color;
+  }
+  .mobile-content {
+    bottom: 50px;
   }
 }
 
@@ -306,6 +347,7 @@ $card-hover-color: #F7FBFF;
       height: 120px;
       position: absolute;
       top:15px;left:15px;
+      border-radius: 5px;
     }
 
     .info {
@@ -546,6 +588,7 @@ $card-hover-color: #F7FBFF;
       top:10px;left:10px;
       overflow: hidden;
       // border-radius: 100%;
+      border-radius: 5px;
     }
     .ct {
       margin-left: 65px;
@@ -776,3 +819,157 @@ $card-hover-color: #F7FBFF;
   }
 }
 
+.mobile-learning-center .chatbox {
+
+  .theme {
+    // background-color: #fff;
+    padding: 15px;
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .desc {
+      color: #666;
+    }
+  }
+
+  .messages {
+    .date {
+      // margin-bottom: 14px;
+      text-align: center;
+      color: #888;
+      font-weight: bold;
+      position: relative;
+      span {
+        background-color: #EEF6FC;
+        position: relative;
+        padding: 0 15px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 9px; left:0; height: 1px; right: 0;
+        background-color: #ddd;
+      }
+    }
+
+    .message {
+      $aw: 50px;
+      overflow: hidden;
+      padding: 14px;
+      margin-left: -14px;
+      margin-right: -14px;
+
+      &:hover {
+        background-color: rgba(black, 0.04);
+      }
+
+      .avatar {
+        float: left;
+        width: $aw; height: $aw;
+        background-color: #123F68;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center center;
+      }
+      .ct {
+        margin-left: $aw + 14px;
+        .who-when {
+          margin-bottom: 6px;
+          font-size: 13px;
+          .name {
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          .time {
+            color: #999;
+            font-family: Monaco,'Courier New',monospace;
+          }
+        }
+        .text {
+          background-color: #FFF;
+          padding: 10px;
+          border-radius: 4px;
+          float: left;
+          position: relative;
+          &:before {
+            content: "";
+            position: absolute;
+            border:solid 6px transparent;
+            border-right: solid 6px white;
+            // border-top: solid 6px white;
+            top:8px;left:-12px;
+          }
+
+          .attach {
+            border-top: solid 1px #f1f1f1;
+            margin-top: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            margin-bottom: -10px;
+            padding: 10px;
+            overflow: hidden;
+
+            .point {
+              @include list_item;
+              float: left;
+              min-width: 120px;
+              height: 40px;
+              padding: 0 15px;
+              margin-bottom: 0;
+              // box-shadow: 0 3px 1px rgba(black, 0.5);
+              border: solid 1px #d1d1d1;
+              box-sizing: content-box;
+              pointer-events: none;
+              i.icc {
+                height: 42px;
+                line-height: 42px;
+                margin-top: -1px;
+                margin-left: -1px;
+                font-size: 20px;
+              }
+              .ct .title {
+                margin-bottom: 0;
+                line-height: 40px;
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.mobile-learning-center .message-boxes {
+  .box {
+    padding: 15px;
+    margin-bottom: 14px;
+    border-left: solid 5px $theme-color;
+    display: block;
+    color: #333;
+    &:hover {
+      background-color: $card-hover-color;
+    }
+
+    i.cicon {
+      margin-right: 15px;
+    }
+
+    .new {
+      float: right;
+      background-color: #F86339;
+      color: white;
+      border-radius: 100px;
+      padding: 0 10px;
+      font-size: 12px;
+    }
+  }
+
+  .box-list {
+    margin-bottom: 28px;
+  }
+}
