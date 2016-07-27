@@ -5,7 +5,7 @@ module.exports = MobileLearningCenterLayout = React.createClass
     title = @props.title
 
     <div className='mobile-learning-center'>
-      <HeaderBar title={title} />
+      <HeaderBar title={title} right_icon={@props.right_icon} />
       <MobileContent>
         {@props.children}
       </MobileContent>
@@ -16,6 +16,10 @@ HeaderBar = React.createClass
   render: ->
     <div className='header-bar'>
       <div className='title'>{@props.title}</div>
+      {
+        if @props.right_icon?
+          <Icon className='right-icon' type={@props.right_icon} />
+      }
     </div>
 
 FootMenu = React.createClass

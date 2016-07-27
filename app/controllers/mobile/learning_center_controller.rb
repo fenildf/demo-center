@@ -33,7 +33,7 @@ class Mobile::LearningCenterController < ApplicationController
       }
 
       messages_data = messages['points']
-      messages_data['channel']['name'] = "知识频道：" + @point['name']
+      messages_data['channel']['name'] = "# 知识频道：" + @point['name']
       messages_data['channel']['back_to'] = "/mobile/learning-center/subjects/outline##{id}"
 
       @component_data = {
@@ -51,7 +51,27 @@ class Mobile::LearningCenterController < ApplicationController
   end
 
   def plan
+    plans_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'plans.yaml')
+    points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+
     @component_name = 'MobileLearningPlan'
+    @component_data = {
+      plans: plans_data,
+      points: points_data
+    }
+  end
+
+  def plan_id
+    plans_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'plans.yaml')
+    points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+
+    id = params[:id].to_i
+
+    @component_name = 'MobileLearningPlanId'
+    @component_data = {
+      plan: plans_data[id],
+      points: points_data
+    }
   end
 
   def subjects
@@ -60,10 +80,12 @@ class Mobile::LearningCenterController < ApplicationController
 
   def subjects_outline
     points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+    plans_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'plans.yaml')
 
     @component_name = 'MobileLearningSubjectsOutline'
     @component_data = {
-      points: points_data
+      points: points_data,
+      plans: plans_data
     }
   end
 

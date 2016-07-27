@@ -25,38 +25,49 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
     current_point: current_point
     current_children: current_children || []
     stack: stack
+    added: false
 
 
   render: ->
-    <MobileLearningCenterSecondaryLayout 
-      title='知识体系导航'
-      back_to='/mobile/learning-center/subjects'
-    >
-      {
-        if @state.stack.length
-          <StackBreadcrumb stack={@state.stack} enter={@enter} />
-      }
+    <div>
 
-      {
-        if @state.current_point?
-          <PointHeader key={@state.current_point.id} point={@state.current_point} />
-        else
-          <KNetHeader key={'root'} />
-      }
+      <MobileLearningCenterSecondaryLayout 
+        title='知识体系导航'
+        back_to='/mobile/learning-center/subjects'
+      >
+        {
+          if @state.stack.length
+            <StackBreadcrumb stack={@state.stack} enter={@enter} />
+        }
 
-      {
-        if @state.current_children.length
-          <div>
-            <h3>详细知识构成</h3>
-            <SubjectsTree
-              subjects={@state.current_children}
-              _filter={(x)-> true}
-            />
-          </div>
-        else
-          <SubjectCourses />
-      }
-    </MobileLearningCenterSecondaryLayout>
+        {
+          if @state.current_point?
+            <PointHeader key={@state.current_point.id} point={@state.current_point} />
+          else
+            <KNetHeader key={'root'} />
+        }
+
+        {
+          if @state.current_children.length
+            <SubjectCourses added={@state.added} add_to_plan={@add_to_plan} />
+          else
+            <SubjectCourses added={@state.added} add_to_plan={@add_to_plan} sample />
+        }
+
+        {
+          if @state.current_children.length
+            <div>
+              <h3>详细知识构成</h3>
+              <SubjectsTree
+                subjects={@state.current_children}
+                _filter={(x)-> true}
+              />
+            </div>
+          else
+        }
+      </MobileLearningCenterSecondaryLayout>
+      <EnterPlans plans={@props.plans} ref='ep' added={@added} />
+    </div>
 
   enter: (subject)->
     id = if subject then subject.id else ''
@@ -66,6 +77,12 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
       .toString()
 
     Turbolinks.visit url
+
+  add_to_plan: ->
+    @refs.ep.setState open: true
+
+  added: ->
+    @setState added: true
 
 
 
@@ -162,11 +179,94 @@ PointHeader = React.createClass
 SubjectCourses = React.createClass
   render: ->
     <div className='subject-courses'>
-      <div className='add-to-plan'>
-        <a href='javascript:;'><Icon type='plus' /> 列入学习计划</a>
-      </div>
+      {
+        if @props.added
+          <div className='added-to-plan'>
+            <Icon type='check' /> 已经列入学习计划
+          </div>
+        else
+          <div className='add-to-plan'>
+            <a href='javascript:;' onClick={@add}><Icon type='plus' /> 列入学习计划</a>
+          </div>
+      }
 
-      <div className='demo-tip shadow-card'>
-        <Icon type='info-circle-o' /> 演示版本不包括实际课程内容
+      {
+        if @props.sample
+          <div className='demo-tip shadow-card'>
+            <Icon type='info-circle-o' /> 演示版本不包括实际课程内容
+          </div>
+      }
+    </div>
+
+  add: ->
+    @props.add_to_plan()
+
+EnterPlans = React.createClass
+  getInitialState: ->
+    open: false
+
+  render: ->
+    if @state.open
+      <div className='modal-enter-plans'>
+        <div className='modal'>
+          <h3>将知识点加入计划夹</h3>
+          <Plans
+            plans={@props.plans}
+            submit={@submit}
+          />
+        </div>
+      </div>
+    else
+      <div />
+
+  submit: ->
+    @setState open: false
+    @props.added()
+
+Plans = React.createClass
+  render: ->
+    <div>
+      <a className='add-plan' href='javascript:;'>
+        <Icon type='plus-circle-o' />
+        创建计划夹
+      </a>
+      <div className='plans'>
+      {
+        for plan, idx in @props.plans
+          <Plan key={idx} plan={plan} />
+      }
+      </div>
+      <div className='submit'>
+        <a className='enter-submit' href='javascript:;' onClick={@props.submit}>
+          <Icon type='check' />
+          确定
+        </a>
       </div>
     </div>
+
+
+Plan = React.createClass
+  getInitialState: ->
+    selected: false
+
+  render: ->
+    classes = ClassName
+      'plan': true
+      'selected': @state.selected
+
+    <a className={classes} onClick={@toggle}>
+      <Icon type='bars' className='icc' />
+      <div className='ct'>
+        <div className='title'>{@props.plan.name}</div>
+        <div className='desc'>{@props.plan?.points?.length} 个知识点</div>
+      </div>
+      {
+        if @state.selected
+          <div className='pgs'>
+            <Icon type='check-circle' />
+          </div>
+      }
+    </a>
+
+  toggle: ->
+    @setState selected: not @state.selected

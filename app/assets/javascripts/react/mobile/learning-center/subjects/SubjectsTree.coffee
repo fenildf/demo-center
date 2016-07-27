@@ -11,6 +11,7 @@ module.exports = SubjectsTree = React.createClass
           key={subject.id} 
           subject={subject} 
           _filter={@props._filter}
+          depth={0}
         />
     }
     </div>
@@ -34,15 +35,20 @@ Subject = React.createClass
         </div>
       </a>
       <SubjectChildren 
+        subject={subject}
         subjects={subjects} 
         _filter={@props._filter}
         parent_component={@props.parent_component}
+        depth={@props.depth}
       />
     </div>
 
 SubjectChildren = React.createClass
   getInitialState: ->
-    collapse: true 
+    if @props.depth == 0
+      collapse: false
+    else
+      collapse: true 
 
   render: ->
     if @props.subjects.length is 0
@@ -53,22 +59,31 @@ SubjectChildren = React.createClass
         'children': true
         'collapse': @state.collapse
 
-      action =
-        <a className='action' onClick={@toggle}>
-        {
-          if @state.collapse
-            <Icon type='right' />
-          else
-            <Icon type='down' />
-        }
-        </a>
+      if @props.depth <=1
+        action =
+          <a className='action' onClick={@toggle}>
+          {
+            if @state.collapse
+              <Icon type='right' />
+            else
+              <Icon type='down' />
+          }
+          </a>
+      else
+        action = <div />
 
 
       <div className={classes} ref='children'>
         <canvas ref='canvas' />
         {action}
 
-        <a className='brief' onClick={@toggle}>{@props.subjects.length} 个下层知识点…</a>
+        {
+          if @props.depth <=1
+            <a className='brief' onClick={@toggle}>{@props.subjects.length} 个下层知识点…</a>
+          else
+            href = "/mobile/learning-center/subjects/outline##{@props.subject.id}"
+            <a className='brief' href={href}>{@props.subjects.length} 个下层知识点…</a>
+        }
 
         <div className='subjects'>
         {
@@ -78,6 +93,7 @@ SubjectChildren = React.createClass
               subject={subject} 
               _filter={@props._filter}
               parent_component={@}
+              depth={@props.depth + 1}
             />
         }
         </div>
@@ -86,10 +102,17 @@ SubjectChildren = React.createClass
   toggle: ->
     @setState collapse: not @state.collapse
 
+  componentDidMount: ->
+    setTimeout =>
+      @draw()
+    , 1
+
   componentDidUpdate: ->
     @draw()
 
   draw: ->
+    return if @props.subjects.length is 0
+
     if not @state.collapse
       @resize_canvas()
       @drawline()

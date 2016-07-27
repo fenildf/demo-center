@@ -17,7 +17,6 @@ window.MobileLearningCenterChatLayout = require 'react/mobile/learning-center/la
 
 window.MobileLearningCenter       = require 'react/mobile/learning-center/MobileLearningCenter'
 window.MobileLearningProgress     = require 'react/mobile/learning-center/MobileLearningProgress'
-window.MobileLearningPlan         = require 'react/mobile/learning-center/MobileLearningPlan'
 
 window.Search                         = require 'react/mobile/learning-center/subjects/Search'
 window.SubjectsTree                   = require 'react/mobile/learning-center/subjects/SubjectsTree'
@@ -27,8 +26,10 @@ window.MobileLearningSubjectsPosts    = require 'react/mobile/learning-center/su
 window.MobileLearningSubjectsPostsAll = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsPostsAll'
 window.MobileLearningSubjectsTarget   = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsTarget'
 
-
 window.MobileLearningMessages         = require 'react/mobile/learning-center/messages/MobileLearningMessages'
 window.MobileLearningMessagesChannel  = require 'react/mobile/learning-center/messages/MobileLearningMessagesChannel'
+
+window.MobileLearningPlan = require 'react/mobile/learning-center/plan/MobileLearningPlan'
+window.MobileLearningPlanId = require 'react/mobile/learning-center/plan/MobileLearningPlanId'
 
 window.ChatBox = require 'react/mobile/learning-center/chatbox/ChatBox'

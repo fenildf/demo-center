@@ -4,6 +4,7 @@ $header-bar-height: 50px;
 
 $theme-color: #41C4FE;
 $dark-color: #123F68;
+$plan-color: #FFC076;
 
 $unread-message-color: #F86339;
 $card-hover-color: #F7FBFF;
@@ -172,6 +173,16 @@ $card-hover-color: #F7FBFF;
 
     .title {
       text-align: center;
+      font-weight: bold;
+    }
+
+    .right-icon {
+      position: absolute;
+      top:0;right:0;
+      width:$header-bar-height;
+      height:$header-bar-height;
+      line-height: $header-bar-height;
+      color: white;
       font-weight: bold;
     }
   }
@@ -572,6 +583,13 @@ $card-hover-color: #F7FBFF;
 }
 
 .mobile-learning-center .subject-courses {
+  .added-to-plan {
+    background-color: rgba(black, 0.05);
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 3px;
+    text-align: center;
+  }
   .add-to-plan {
     overflow: hidden;
     margin-bottom: 14px;
@@ -1078,5 +1096,158 @@ $card-hover-color: #F7FBFF;
 
   .box-list {
     margin-bottom: 28px;
+  }
+}
+
+@mixin plan_item {
+  @include list_item;
+
+  i.icc {
+    width: 40px;
+    background-color: $plan-color;
+    &:after {
+      content: "";
+      position: absolute;
+      border-left: solid 15px $plan-color;
+      border-top: solid 40px transparent;
+      border-bottom: solid 40px transparent;
+      left: 40px;
+      top: 0;
+    }
+  }
+
+  .pgs {
+    position: absolute;
+    top:0;right:0;height:80px;width:80px;
+    padding: 10px;
+  }
+
+  .ct {
+    margin-right: 80px;
+  }
+}
+
+.mobile-learning-center .plans {
+  .plan {
+    @include plan_item;
+  }
+}
+
+.mobile-learning-center .plan-header {
+  @include plan_item;
+  height: 80px + 22px + 20px;
+  &:hover {
+    background-color: white;
+  }
+
+  .updated-at {
+    border-top: solid 1px #f1f1f1;
+    padding: 10px 15px;
+    text-align: right;
+    background-color: $card-hover-color;
+    font-size: 12px;
+    line-height: 22px;
+    margin-left: -15px;
+    margin-right: -15px;
+    margin-bottom: -15px;
+    margin-top: 15px;
+    color: #999;
+    i {margin-right: 10px;}
+  }
+}
+
+.modal-enter-plans {
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: rgba(black, 0.62);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {  
+    width: 5px;  
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(white, 0.5);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(black, 0.5); 
+  }
+
+  .modal {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    right: 10px;
+    min-height: 100px;
+    background-color: white;
+    h3 {
+      padding: 10px 15px;
+      border-bottom: solid 1px #f1f1f1;
+      background-color: $card-hover-color;
+    }
+
+    .add-plan {
+      @include dark_pill_button;
+      position: relative;
+      display: inline-block;
+      top:0;left:0;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .submit {
+      text-align: right;
+      padding: 10px;
+      a.enter-submit {
+        @include dark_pill_button;
+        position: relative;
+        display: inline-block;
+        top:0;left:0;
+        background-color: darken(#53E69D, 10%);
+      }
+    }
+
+    .plans {
+      margin-top: 10px;
+      margin-bottom: 15px;
+      border-top: solid 1px #f1f1f1;
+
+
+      .plan {
+        @include plan_item;
+        margin-bottom: 0;
+        margin-top: 5px;
+        border-bottom: solid 1px #f1f1f1;
+        .title {
+          font-size: 14px;
+        }
+
+        &.selected {
+          background-color: $theme-color;
+          color: white;
+
+          .desc {
+            color: rgba(white, 0.7);
+          }
+
+          i.icc {
+            background-color: rgba(white, 0.5);
+            &:after {
+              border-left-color: rgba(white, 0.5);
+            }
+          }
+
+          .pgs i {
+            width: 60px;
+            height: 60px; line-height: 60px;
+            text-align: center;
+            font-size: 30px;
+          }
+        }
+      }
+    }
   }
 }

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   namespace :mobile do
     get '/learning-center',          to: 'learning_center#index'
     get '/learning-center/progress', to: 'learning_center#progress'
-    get '/learning-center/plan',     to: 'learning_center#plan'
 
     get '/learning-center/subjects',            to: 'learning_center#subjects'
     get '/learning-center/subjects/outline',    to: 'learning_center#subjects_outline'
@@ -18,6 +17,8 @@ Rails.application.routes.draw do
     get '/learning-center/messages', to: 'learning_center#messages'
     get '/learning-center/messages/:channel', to: 'learning_center#messages_channel'
 
+    get '/learning-center/plan',     to: 'learning_center#plan'
+    get '/learning-center/plan/:id', to: 'learning_center#plan_id'
     # get '/learning-center/login', to: 'learning_center#login'
   end
 end

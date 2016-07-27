@@ -84,6 +84,7 @@
         - id: '2-3-8'
           name: 投资理财类
           of_my_post: true
+
     - id: '2-4'
       name: 法律知识
     - id: '2-5'
@@ -91,6 +92,32 @@
     - id: '2-6'
       name: 外汇知识
       of_my_post: true
+    - id: '2-7'
+      name: 营销技巧
+      of_my_post: true
+      children:
+        - id: '2-7-1'
+          name: '客户需求分析'
+          of_my_post: true
+        - id: '2-7-2'
+          name: '自我营销'
+          of_my_post: true
+        - id: '2-7-3'
+          name: '电话营销'
+          of_my_post: true
+        - id: '2-7-4'
+          name: '客户异议处理'
+          of_my_post: true
+        - id: '2-7-5'
+          name: '客户关系管理'
+          of_my_post: true
+          children:
+            - id: '2-7-5-1'
+              name: '高端客户'
+              of_my_post: true
+            - id: '2-7-5-2'
+              name: '普通客户'
+              of_my_post: true
 
 
 - id: '3'
