@@ -3,6 +3,7 @@
 $header-bar-height: 50px;
 
 $theme-color: #41C4FE;
+$dark-color: #123F68;
 
 $unread-message-color: #F86339;
 $card-hover-color: #F7FBFF;
@@ -75,6 +76,18 @@ $card-hover-color: #F7FBFF;
   }
 }
 
+@mixin dark_pill_button {
+  background-color: $dark-color;
+  color: white;
+  position: absolute;
+  top: 8px; left: 8px;
+  height: 26px; line-height: 26px;
+  padding: 0 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  i {margin-right: 10px;}
+}
+
 @mixin subject_header {
   position: relative;
   margin-bottom: 28px;
@@ -119,15 +132,7 @@ $card-hover-color: #F7FBFF;
 
     a.enter-channel {
       // background-color: $theme-color;
-      background-color: #123F68;
-      color: white;
-      position: absolute;
-      top: 8px; left: 8px;
-      height: 26px; line-height: 26px;
-      padding: 0 14px;
-      border-radius: 100px;
-      font-size: 12px;
-      i {margin-right: 10px;}
+      @include dark_pill_button;
     }
   }
 }
@@ -191,6 +196,7 @@ $card-hover-color: #F7FBFF;
       text-align: center;
       i {font-size: 28px;display: block;line-height:55px;}
       span {font-size: 12px;display: block;line-height:20px;display:none;}
+      box-shadow: 0 0 5px rgba(black, 0.2);
     }
 
     .link {
@@ -850,6 +856,14 @@ $card-hover-color: #F7FBFF;
     .desc {
       color: #666;
     }
+
+    .back-to {
+      @include dark_pill_button;
+      position: relative;
+      display: inline-block;
+      left: 0; top: 0;
+      margin-top: 14px;
+    }
   }
 
   .messages {
@@ -886,7 +900,7 @@ $card-hover-color: #F7FBFF;
       .avatar {
         float: left;
         width: $aw; height: $aw;
-        background-color: #123F68;
+        background-color: $dark-color;
         border-radius: 5px;
         background-size: cover;
         background-position: center center;
@@ -984,6 +998,30 @@ $card-hover-color: #F7FBFF;
               background-size: cover;
               margin: -10px;
             }
+
+            .question {
+              min-width: 160px;
+              .qct {
+                margin-bottom: 10px;
+              }
+              .tags {
+                overflow: hidden;
+                margin-bottom: -5px;
+                .tag {
+                  float: left;
+                  font-size: 12px;
+                  background-color: lighten($theme-color, 10%);
+                  color: white;
+                  padding: 0 8px;
+                  border-radius: 3px;
+                  line-height: 22px;
+                  height: 22px;
+                  margin-right: 5px;
+                  margin-bottom: 5px;
+                  i {margin-right: 5px;}
+                }
+              }
+            }
           }
 
         }
@@ -1000,6 +1038,7 @@ $card-hover-color: #F7FBFF;
           text-align: right;
         }
         .text {
+          float: right;
           &:before {
             border-right: solid 8px transparent;
             border-left: solid 8px white;

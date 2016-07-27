@@ -39,9 +39,9 @@ module.exports = MobileLearningSubjectsOutline = React.createClass
 
       {
         if @state.current_point?
-          <PointHeader point={@state.current_point} />
+          <PointHeader key={@state.current_point.id} point={@state.current_point} />
         else
-          <KNetHeader />
+          <KNetHeader key={'root'} />
       }
 
       {

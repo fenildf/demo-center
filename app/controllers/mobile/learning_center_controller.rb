@@ -19,6 +19,31 @@ class Mobile::LearningCenterController < ApplicationController
     messages = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'messages.yaml')
 
     @component_name = 'MobileLearningMessagesChannel'
+
+    if params[:channel].include? 'point-'
+      id = params[:channel].sub('point-', '')
+      arr = id.split('-').map {|x| x.to_i}
+      points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+      
+      @point = {
+        'children' => points_data
+      }
+      arr.each { |idx|
+        @point = @point['children'][idx - 1]
+      }
+
+      messages_data = messages['points']
+      messages_data['channel']['name'] = "知识频道：" + @point['name']
+      messages_data['channel']['back_to'] = "/mobile/learning-center/subjects/outline##{id}"
+
+      @component_data = {
+        talkers: talkers,
+        messages: messages_data
+      }
+
+      return
+    end
+
     @component_data = {
       talkers: talkers,
       messages: messages[params[:channel]]

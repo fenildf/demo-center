@@ -9,8 +9,7 @@ module.exports = MobileLearningMessagesChannel = React.createClass
         messages={@props.messages} 
       >
         <ChatBox.Theme 
-          title={@props.messages?.channel?.name}
-          desc={@props.messages?.channel?.desc}
+          channel={@props.messages?.channel}
         />
       </ChatBox>
     </MobileLearningCenterChatLayout>

@@ -58,6 +58,7 @@ points:
   channel:
     name: '# 知识频道：银行职业知识体系'
     desc: '通过这个频道进行交流与讨论'
+    back_to: '/mobile/learning-center/subjects/outline'
 
   messages:
     - by: 'me'
@@ -84,4 +85,8 @@ points:
           - 理财产品
           - 客户
           - 营销
+
+    - by: 'u3'
+      text: '评论了我的问题'
+      comment: '是关于理财客户吗？'
 

@@ -45,8 +45,14 @@ module.exports = ChatBox = React.createClass
     Theme: React.createClass
       render: ->
         <div className='theme'>
-          <div className='title'>{@props.title}</div>
-          <div className='desc'>频道说明：{@props.desc}</div>
+          <div className='title'>{@props.channel?.name}</div>
+          <div className='desc'>频道说明：{@props.channel?.desc}</div>
+          {
+            if @props.channel?.back_to?
+              <a className='back-to' href={@props.channel?.back_to}>
+                <Icon type='left' /> 回到知识点
+              </a>
+          }
         </div>
 
     Messages: React.createClass
@@ -101,6 +107,12 @@ Message = React.createClass
                 <Icon className='c' type='message' /> {message.comment}
               </div>
           }
+          {
+            if message.question?
+              <div className='attach'>
+                <Question question={message.question} />
+              </div>
+          }
         </div>
       </div>
     </div>
@@ -123,6 +135,18 @@ Point = React.createClass
 
 Photo = React.createClass
   render: ->
-    console.log @props.photo.surl
+    # console.log @props.photo.surl
     <div className='photo' style={backgroundImage: "url(#{@props.photo.surl})"}>
+    </div>
+
+Question = React.createClass
+  render: ->
+    <div className='question'>
+      <div className='qct'><Icon type='question-circle-o' /> {@props.question.content}</div>
+      <div className='tags'>
+      {
+        for tag, idx in @props.question?.tags || []
+          <div className='tag' key={idx}><Icon type='tag' /> {tag}</div>
+      }
+      </div>
     </div>
