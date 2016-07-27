@@ -1040,6 +1040,39 @@ $card-hover-color: #F7FBFF;
                 }
               }
             }
+
+            .notice {
+              min-width: 160px;
+              .time {
+                color: #999;
+                margin-bottom: 10px;
+                i {margin-right: 10px;}
+              }
+              .name {
+                i {margin-right: 10px;}
+              }
+            }
+
+            .file {
+              background-color: white;
+              padding: 10px;
+              box-shadow: 1px 1px 3px rgba(black, 0.2);
+              min-width: 160px;
+              border-left: solid 4px #53E69D;
+              i {margin-right: 10px;}
+            }
+
+            .send-btn {
+              margin-bottom: 10px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+              a.send {
+                @include dark_pill_button;
+                display: inline-block;
+                position: static;
+              }
+            }
           }
 
         }
@@ -1247,6 +1280,228 @@ $card-hover-color: #F7FBFF;
             font-size: 30px;
           }
         }
+      }
+    }
+  }
+}
+
+.modal-message-detail {
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: white;
+
+  .header {
+    height: 50px;
+    line-height: 50px;
+    background-color: $theme-color;
+    position: relative;
+
+    i {
+      width: 50px; height: 50px; line-height: 50px;
+      text-align: center; color: white;
+      font-weight: bold;
+      position: absolute;
+      font-size: 16px;
+    }
+    i.l {top:0;left:0;cursor:pointer;
+      &:hover {
+        background-color: rgba(white, 0.1);
+      }
+    }
+    i.r {top:0;right:0;}
+  }
+
+  .detail-btns {
+    padding: 15px 0;
+    a.detail-btn {
+      @include dark_pill_button;
+      position: static;
+      display: inline-block;
+      height: 32px; line-height: 32px;
+      margin-left: 80px;
+    }
+  }
+
+  .message-content {
+    .message {
+      $aw: 50px;
+      overflow: hidden;
+      padding: 15px;
+      border-bottom: solid 1px #f1f1f1;
+
+      .avatar {
+        float: left;
+        width: $aw; height: $aw;
+        background-color: $dark-color;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center center;
+      }
+
+      .ct {
+        margin-left: $aw + 14px;
+        .who-when {
+          margin-bottom: 6px;
+          font-size: 13px;
+          .name {
+            font-weight: bold;
+            margin-right: 10px;
+          }
+          .time {
+            color: #999;
+            font-family: Monaco,'Courier New',monospace;
+          }
+        }
+        .text {
+          background-color: #FFF;
+          border-radius: 4px;
+          float: left;
+          position: relative;
+          cursor: default;
+          font-size: 14px;
+
+          .comment {
+            margin-top: 10px;
+            color: #999;
+            .c {
+              margin-right: 5px;
+              font-weight: bold;
+              color: #bbb;
+            }
+          }
+
+          .attach {
+            // border-top: solid 1px #f1f1f1;
+            margin-top: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            margin-bottom: -10px;
+            padding: 10px;
+            overflow: hidden;
+            border-radius: 0 0 4px 4px;
+
+            .point {
+              @include list_item;
+              float: left;
+              clear: both;
+              min-width: 160px;
+              height: 40px;
+              padding: 0 15px;
+              margin-bottom: 0;
+              // box-shadow: 0 3px 1px rgba(black, 0.5);
+              // border: solid 1px #d1d1d1;
+              background-color: white;
+              box-sizing: content-box;
+              pointer-events: none;
+              box-shadow: 1px 1px 3px rgba(black, 0.2);
+              i.icc {
+                height: 42px;
+                line-height: 42px;
+                margin-top: -1px;
+                margin-left: -1px;
+                font-size: 20px;
+              }
+              .ct .title {
+                margin-bottom: 0;
+                line-height: 40px;
+              }
+            }
+
+            .reason {
+              clear:both;
+              padding-top: 10px;
+              font-size: 12px;
+              color: #999;
+            }
+
+            .photo {
+              width: 160px * 1.2;
+              height: 100px * 1.2;
+              background-position: center center;
+              background-size: cover;
+            }
+
+            .question {
+              min-width: 160px;
+              .qct {
+                margin-bottom: 10px;
+              }
+              .tags {
+                overflow: hidden;
+                margin-bottom: -5px;
+                .tag {
+                  float: left;
+                  font-size: 12px;
+                  background-color: lighten($theme-color, 10%);
+                  color: white;
+                  padding: 0 8px;
+                  border-radius: 3px;
+                  line-height: 22px;
+                  height: 22px;
+                  margin-right: 5px;
+                  margin-bottom: 5px;
+                  i {margin-right: 5px;}
+                }
+              }
+            }
+
+            .notice {
+              min-width: 160px;
+              .time {
+                color: #999;
+                margin-bottom: 10px;
+                i {margin-right: 10px;}
+              }
+              .name {
+                i {margin-right: 10px;}
+              }
+            }
+
+            .file {
+              background-color: white;
+              padding: 10px;
+              box-shadow: 1px 1px 3px rgba(black, 0.2);
+              min-width: 160px;
+              border-left: solid 4px #53E69D;
+              i {margin-right: 10px;}
+            }
+
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.mobile-learning-center .all-posts {
+  .post {
+    padding: 15px;
+    border-left: solid 4px $theme-color;
+    margin-bottom: 14px;
+    color: #888;
+    i {margin-right: 10px;}
+  }
+  .children {
+    overflow: hidden;
+    .post {
+      width: calc(50% - 7px);
+      float: left;
+      margin-right: 14px;
+      min-height: 130px;
+      border-left-color: $plan-color;
+      color: #333;
+
+      &:nth-child(2n){
+        margin-right: 0;
+      }
+
+      .desc {
+        margin-top: 10px;
+        border-top: solid 1px #f1f1f1;
+        background-color: $card-hover-color;
+        margin: 15px -15px -15px -15px;
+        padding: 15px;
       }
     }
   }

@@ -3,6 +3,7 @@
 module.exports = ChatBox = React.createClass
   getInitialState: ->
     messages: @props.messages.messages
+    responses: @props.messages.responses
 
   render: ->
     <div className='chatbox'>
@@ -11,6 +12,7 @@ module.exports = ChatBox = React.createClass
       <ChatBox.Messages 
         talkers={@props.talkers}
         messages={@state.messages}
+        show_detail={@props.show_detail}
       />
     </div>
 
@@ -40,6 +42,48 @@ module.exports = ChatBox = React.createClass
         @setState messages: messages
         @scrolldown()
 
+        @response(text)
+
+  response: (text)->
+    sendd = (message)=>
+      messages = @state.messages
+      messages.push message
+      @setState messages: messages
+      @scrolldown()
+
+
+    setTimeout =>
+      if @state.responses['any']
+        mgs = @state.responses['any']
+        message = mgs[~~(Math.random() * mgs.length)]
+        sendd(message)
+
+      else if @state.responses[text]
+        mgs = @state.responses[text]
+        message = mgs[~~(Math.random() * mgs.length)]
+
+        window.correct_msg = message.sends?[message.correct]
+        sendd(message)
+
+      else if window.correct_msg
+        if text == window.correct_msg
+          window.correct_msg = null
+          message =
+            by: 'pbot'
+            text: '答对了！'
+            sends: ['继续练习']
+
+          sendd(message)
+
+        else
+          window.correct_msg = null
+          message =
+            by: 'pbot'
+            text: '答错了！'
+            sends: ['继续练习']
+
+          sendd(message)
+    , 1000
 
   statics:
     Theme: React.createClass
@@ -65,7 +109,10 @@ module.exports = ChatBox = React.createClass
           {
             for message, idx in @state.messages
               talker = @props.talkers[message.by]
-              <Message key={idx} message={message} talker={talker} />
+              <Message key={idx} 
+                message={message} talker={talker} 
+                show_detail={@props.show_detail(message)}
+              />
           }
         </div>
 
@@ -74,7 +121,7 @@ Message = React.createClass
     talker = @props.talker
     message = @props.message
 
-    <div className="message #{message.by}">
+    <div className="message #{message.by}" onClick={@show}>
       <div className='avatar' style={backgroundImage: "url(#{talker.avatar})"} />
       <div className='ct'>
         <div className='who-when'>
@@ -113,10 +160,42 @@ Message = React.createClass
                 <Question question={message.question} />
               </div>
           }
+          {
+            if message.notice?
+              <div className='attach'>
+                <Notice notice={message.notice} />
+              </div>
+          }
+          {
+            if message.file?
+              <div className='attach'>
+                <File file={message.file} />
+              </div>
+          }
+          {
+            if message.sends?
+              <div className='attach'>
+              {
+                for s, idx in message.sends
+                  <div key={idx} className='send-btn'>
+                    <a className='send' onClick={@send(s)}><Icon type='enter' /> {s}</a>
+                  </div>
+              }
+              </div>
+          }
         </div>
       </div>
     </div>
 
+  show: ->
+    if not @props.message.sends?
+      @props.show_detail()
+
+  send: (msg)->
+    =>
+      jQuery(document).trigger('chatbox:send', message: msg)
+
+ChatBox.Message = Message
 
 Point = React.createClass
   render: ->
@@ -148,5 +227,27 @@ Question = React.createClass
         for tag, idx in @props.question?.tags || []
           <div className='tag' key={idx}><Icon type='tag' /> {tag}</div>
       }
+      </div>
+    </div>
+
+Notice = React.createClass
+  render: ->
+    <div className='notice'>
+      <div className='time'>
+        <Icon className='cal' type='calendar' />
+        时间：{@props.notice.date}
+      </div>
+      <div className='name'>
+        <Icon className='cal' type='team' />
+        {@props.notice.name}
+      </div>
+    </div>
+
+File = React.createClass
+  render: ->
+    <div className='file'>
+      <div className='name'>
+        <Icon type='file-excel' />
+        {@props.file.name}
       </div>
     </div>

@@ -11,7 +11,7 @@ module.exports = MobileLearningSubjectsPosts = React.createClass
     >
       <MyPost post={@state.my_post} />
       <div className='show-all-post'>
-        <a href='/mobile/learning-center/subjects/posts/all'><Icon type='up' /> 查看全部岗位要求</a>
+        <a href='/mobile/learning-center/subjects/posts/all'><Icon type='up' /> 查看全部岗位分类</a>
       </div>
       <h3>{@state.my_post.name} · 岗位通用知识要求</h3>
       <SubjectsTree
@@ -40,6 +40,13 @@ MyPost = React.createClass
       <div className='title'>我的岗位：{post.name}</div>
       <div className='desc'>{post.desc}</div>
       <div className='stat'>
+        {
+          href = "/mobile/learning-center/messages/mypost"
+          <a className='enter-channel' href={href}>
+            <Icon type='right' /> 进入互动频道
+          </a>
+        }
+
         <div className='s s2'>
           <Icon type='message' /> 27
         </div>

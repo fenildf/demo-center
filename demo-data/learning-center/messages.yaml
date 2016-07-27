@@ -23,6 +23,11 @@ updating:
         name: '商务礼仪'
         reason: '它对你最近的问题有所帮助'
 
+  responses:
+    any:
+      - by: 'mbot'
+        text: '截至 2016-07-28, 你的学习计划完成度为 66%, 请继续努力！'
+
 
 notice:
   channel:
@@ -35,12 +40,25 @@ notice:
 
     - by: 'nbot'
       text: '会议通知'
+      notice:
+        date: '7 月 30 日'
+        name: '业务经验交流会'
 
     - by: 'nbot'
       text: '线下讲座通知'
+      notice:
+        date: '8 月 1 日'
+        name: '互联网金融讲座'
 
     - by: 'nbot'
       text: '6 月优秀员工公示'
+      file:
+        name: '公示表格.xlsx' 
+
+  responses:
+    any:
+      - by: 'nbot'
+        text: '没有更多通知了。'
 
 practice:
   channel:
@@ -52,7 +70,61 @@ practice:
       text: '这是一个 DEMO'
 
     - by: 'pbot'
-      text: '请选择要进行的内容'
+      text: '请选择要进行的动作'
+      sends:
+        - '学习课程'
+        - '继续练习'
+
+  responses:
+    学习课程:
+      - by: 'pbot'
+        text: 推荐你学习：
+        new_point: 
+          name: '风险控制'
+          reason: '它对你最近的问题有所帮助'
+
+    继续练习:
+      - by: 'pbot'
+        text: |
+          选择题：
+          个人消费贷款逾期 ___ 月以上及分次还款连续违约 6 次以上可以认定为可疑贷款？
+        sends:
+          - A. 3-6 个月
+          - B. 6-9 个月
+          - C. 9-12 个月
+        correct: 1
+
+      - by: 'pbot'
+        text: |
+          选择题：
+          授信额度达 ___ 时，经营支行分管信贷的行领导必须直接参与贷后管理？
+        sends:
+          - A. 100 万元
+          - B. 200 万元
+          - C. 300 万元
+          - D. 500 万元
+        correct: 2
+
+      - by: 'pbot'
+        text: |
+          选择题：
+          客户经理每月至少对授信客户进行 ___ 次贷后管理日常访谈？
+        sends:
+          - A. 1 次
+          - B. 2 次
+          - C. 3 次
+        correct: 0
+
+      - by: 'pbot'
+        text: |
+          选择题：
+          次级类客户贷后检查至少 ___ 检查一次？
+        sends:
+          - A. 每半年
+          - B. 每季度
+          - C. 每月
+          - D. 每 15 天
+        correct: 2
 
 points:
   channel:

@@ -20,6 +20,20 @@ class Mobile::LearningCenterController < ApplicationController
 
     @component_name = 'MobileLearningMessagesChannel'
 
+    if params[:channel].include? 'mypost'
+
+      messages_data = messages['points']
+      messages_data['channel']['name'] = '# 岗位频道：' + '对私客户经理'
+      messages_data['channel']['back_to'] = "/mobile/learning-center/subjects/posts"
+
+      @component_data = {
+        talkers: talkers,
+        messages: messages_data
+      }
+
+      return
+    end
+
     if params[:channel].include? 'point-'
       id = params[:channel].sub('point-', '')
       arr = id.split('-').map {|x| x.to_i}
@@ -101,7 +115,11 @@ class Mobile::LearningCenterController < ApplicationController
   end
 
   def subjects_posts_all
+    posts_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-posts.yaml')
     @component_name = 'MobileLearningSubjectsPostsAll'
+    @component_data = {
+      posts: posts_data
+    }
   end
 
   def subjects_target
