@@ -1210,8 +1210,18 @@ $card-hover-color: #F7FBFF;
               }
             }
 
-            .notice {
+            .file, .notice, .todo{
+              background-color: white;
+              padding: 10px;
+              box-shadow: 1px 1px 3px rgba(black, 0.2);
               min-width: 160px;
+              border-left: solid 4px #53E69D;
+              i {margin-right: 10px;}
+            }
+
+            .notice{
+              min-width: 160px;
+              border-left: solid 4px $unread-message-color;
               .time {
                 color: #999;
                 margin-bottom: 10px;
@@ -1222,13 +1232,15 @@ $card-hover-color: #F7FBFF;
               }
             }
 
-            .file {
-              background-color: white;
-              padding: 10px;
-              box-shadow: 1px 1px 3px rgba(black, 0.2);
-              min-width: 160px;
-              border-left: solid 4px #53E69D;
-              i {margin-right: 10px;}
+            .todo {
+              border-left: solid 4px #1ECE77;
+              i {
+                background-color: #1ECE77;
+                color: white;
+                width: 32px; height: 32px; line-height: 32px;
+                border-radius: 3px;
+                text-align: center;
+              }
             }
 
             .send-btn {
@@ -1692,8 +1704,18 @@ $card-hover-color: #F7FBFF;
               }
             }
 
-            .notice {
+            .file, .notice, .todo {
+              background-color: white;
+              padding: 10px;
+              box-shadow: 1px 1px 3px rgba(black, 0.2);
               min-width: 160px;
+              border-left: solid 4px #53E69D;
+              i {margin-right: 10px;}
+            }
+
+            .notice{
+              min-width: 160px;
+              border-left: solid 4px $unread-message-color;
               .time {
                 color: #999;
                 margin-bottom: 10px;
@@ -1704,13 +1726,15 @@ $card-hover-color: #F7FBFF;
               }
             }
 
-            .file {
-              background-color: white;
-              padding: 10px;
-              box-shadow: 1px 1px 3px rgba(black, 0.2);
-              min-width: 160px;
-              border-left: solid 4px #53E69D;
-              i {margin-right: 10px;}
+            .todo {
+              border-left: solid 4px #1ECE77;
+              i {
+                background-color: #1ECE77;
+                color: white;
+                width: 32px; height: 32px; line-height: 32px;
+                border-radius: 3px;
+                text-align: center;
+              }
             }
 
           }
@@ -1786,5 +1810,67 @@ $card-hover-color: #F7FBFF;
     padding: 15px;
     border-top: solid 1px #f1f1f1;
     background-color: $card-hover-color;
+  }
+}
+
+.mobile-learning-center .todos {
+  .todo {
+    cursor: pointer;
+    @include list_item;
+    height: 42px;
+    padding: 10px 15px;
+    transition: height 0.3s ease;
+
+    i.icc {
+      height: 42px; line-height: 42px;
+    }
+    .ct {
+      .title {
+        font-weight: normal;
+        .due {
+          color: #999;
+          margin-left: 14px;
+        }
+      }
+    }
+
+    .btns {
+      height: 32px;
+      border-top: solid 1px #f1f1f1;
+      text-align: right;
+      margin-left: -15px;
+      margin-right: -15px;
+      padding-right: 5px;
+      overflow: hidden;
+      background-color: $card-hover-color;
+      height: 0;
+
+      transition: height 0.3s ease;
+
+      a {
+        @include dark_pill_button;
+        position: static;
+        display: inline-block;
+        height: 24px; line-height: 24px;
+        border-radius: 3px;
+        margin-top: 4px;
+        margin-left: 5px;
+        i {margin-right: 0;}
+
+        &.gou {
+          background-color: #1ECE77;
+        }
+        &.cha {
+          background-color: $unread-message-color;
+        }
+      }
+    }
+
+    &.open {
+      height: 42px + 32px;
+      .btns {
+        height: 32px;
+      }
+    }
   }
 }

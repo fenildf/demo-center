@@ -34,4 +34,6 @@ window.MobileLearningPlanId = require 'react/mobile/learning-center/plan/MobileL
 
 window.MobileLearningSubjectsTargetSolve = require 'react/mobile/learning-center/MobileLearningSubjectsTargetSolve'
 
+window.MobileLearningTodo = require 'react/mobile/learning-center/MobileLearningTodo'
+
 window.ChatBox = require 'react/mobile/learning-center/chatbox/ChatBox'

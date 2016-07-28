@@ -24,7 +24,7 @@ updating:
         reason: '它对你最近的问题有所帮助'
 
     - by: 'mbot'
-      text: '获得了新的规定学习计划'
+      text: '获得了新的指定学习计划'
       new_plan: 
         name: '互联网金融'
         reason: '它与即将开展的新业务有关'
@@ -65,6 +65,45 @@ notice:
     any:
       - by: 'nbot'
         text: '没有更多通知了。'
+
+todo:
+  channel:
+    name: '# 待办提醒'
+    desc: '# 通过这个频道获得待办事项的提醒'
+
+  messages:
+    - by: 'me'
+      text: '这是一个 DEMO'
+
+    - by: 'nbot'
+      text: '你完成了一项待办事项'
+      todo:
+        done: true
+        text: '对张师傅进行上门访谈'
+
+    - by: 'nbot'
+      text: '有一项待办事项过期了'
+      todo:
+        done: false
+        text: '客户回访'
+      sends:
+        - '延到今天'
+        - '撤销'
+
+  responses:
+    any:
+      - by: 'nbot'
+        text: '今天你还有 4 项待办事项'
+
+    延到今天:
+      - by: 'nbot'
+        text: '待办事项已延期到今天'
+
+    撤销:
+      - by: 'nbot'
+        text: '待办事项已撤销'
+
+
 
 practice:
   channel:

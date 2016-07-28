@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     get '/learning-center/plan/:id', to: 'learning_center#plan_id'
 
     get '/learning-center/subjects/target/solve', to: 'learning_center#solve'
+
+    get '/learning-center/todo', to: 'learning_center#todo'
     # get '/learning-center/login', to: 'learning_center#login'
   end
 end

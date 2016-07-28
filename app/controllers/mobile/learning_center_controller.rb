@@ -152,4 +152,10 @@ class Mobile::LearningCenterController < ApplicationController
       results: SearchBox::Parser.get_qustions_by_keywords(params[:keywords])[0..5]
     }
   end
+
+  def todo
+    @component_name = 'MobileLearningTodo'
+    @component_data = {
+    }
+  end
 end

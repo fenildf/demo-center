@@ -81,6 +81,10 @@ Detail = React.createClass
           if @props.message.file
             <a className='detail-btn' href={url}><Icon type='download' />查看文件</a>
         }
+        {
+          if not @props.message.todo and not @props.new_point
+            <a className='detail-btn' href={url}><Icon type='calendar' />加入待办事项</a>
+        }
         </div>
       </div>
     else

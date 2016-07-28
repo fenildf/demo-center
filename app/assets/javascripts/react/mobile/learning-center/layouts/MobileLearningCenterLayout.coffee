@@ -44,8 +44,8 @@ FootMenu = React.createClass
         <Icon type='message' /><span>消息</span>
         <div className='new-count'>…</div>
       </a>
-      <a className={classes_arr[3]}>
-        <Icon type='question-circle-o' /><span>??</span>
+      <a className={classes_arr[3]} href='/mobile/learning-center/todo'>
+        <Icon type='calendar' /><span>事项</span>
       </a>
     </div>
 

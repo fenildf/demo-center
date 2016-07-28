@@ -2,7 +2,7 @@
 
 module.exports = MobileLearningMessages = React.createClass
   render: ->
-    <MobileLearningCenterLayout title='消息中心' menu_active={3}>
+    <MobileLearningCenterLayout title='消息频道' menu_active={3}>
       <Search placeholder='查找消息记录' />
       <Boxes />
     </MobileLearningCenterLayout>
@@ -20,6 +20,8 @@ Boxes = React.createClass
           channel='notice' />
         <Box name='# 学习与练习' icon='check'
           channel='practice' />
+        <Box name='# 待办提醒' icon='calendar'
+          channel='todo' />
       </div>
 
       <h3>知识频道</h3>

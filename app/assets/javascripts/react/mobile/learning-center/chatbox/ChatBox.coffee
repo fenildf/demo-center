@@ -53,17 +53,18 @@ module.exports = ChatBox = React.createClass
 
 
     setTimeout =>
-      if @state.responses['any']
-        mgs = @state.responses['any']
-        message = mgs[~~(Math.random() * mgs.length)]
-        sendd(message)
-
-      else if @state.responses[text]
+      if @state.responses?[text]
         mgs = @state.responses[text]
         message = mgs[~~(Math.random() * mgs.length)]
 
         window.correct_msg = message.sends?[message.correct]
         sendd(message)
+
+      else if @state.responses?['any']
+        mgs = @state.responses['any']
+        message = mgs[~~(Math.random() * mgs.length)]
+        sendd(message)
+
 
       else if window.correct_msg
         if text == window.correct_msg
@@ -179,6 +180,12 @@ Message = React.createClass
               </div>
           }
           {
+            if message.todo?
+              <div className='attach'>
+                <Todo todo={message.todo} />
+              </div>
+          }
+          {
             if message.sends?
               <div className='attach'>
               {
@@ -272,5 +279,17 @@ File = React.createClass
       <div className='name'>
         <Icon type='file-excel' />
         {@props.file.name}
+      </div>
+    </div>
+
+Todo = React.createClass
+  render: ->
+    <div className='todo'>
+      <div className='name'>
+        {
+          if @props.todo.done
+            <Icon type='check' />
+        }
+        {@props.todo.text}
       </div>
     </div>
