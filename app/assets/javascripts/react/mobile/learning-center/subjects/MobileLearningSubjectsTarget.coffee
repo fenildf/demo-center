@@ -144,7 +144,7 @@ ResultsList = React.createClass
         <div className='questions-results-list shadow-card'>
           {
             for item, idx in @props.results
-              <a className='item' key={idx}>
+              <a className='item' key={idx} href='/mobile/learning-center/subjects/target/solve'>
                 <Icon type='question-circle-o' />
                 <div className='ct'>
                   <div className='title'>{item.title}</div>

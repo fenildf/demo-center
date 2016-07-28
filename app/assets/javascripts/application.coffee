@@ -32,4 +32,6 @@ window.MobileLearningMessagesChannel  = require 'react/mobile/learning-center/me
 window.MobileLearningPlan = require 'react/mobile/learning-center/plan/MobileLearningPlan'
 window.MobileLearningPlanId = require 'react/mobile/learning-center/plan/MobileLearningPlanId'
 
+window.MobileLearningSubjectsTargetSolve = require 'react/mobile/learning-center/MobileLearningSubjectsTargetSolve'
+
 window.ChatBox = require 'react/mobile/learning-center/chatbox/ChatBox'

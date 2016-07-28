@@ -113,7 +113,7 @@ KNetHeader = React.createClass
 
     <div className='knet-header shadow-card'>
       <div className='title'>银行职业知识体系</div>
-      <div className='time'>更新于：5小时前</div>
+      <div className='time'>更新于：5 小时前</div>
       <div className='image' style={backgroundImage: "url(#{imgurl})"} />
       <div className='desc'>银行业从业员工需要掌握的各种知识技能</div>
       <div className='stat'>
@@ -192,8 +192,46 @@ SubjectCourses = React.createClass
 
       {
         if @props.sample
-          <div className='demo-tip shadow-card'>
-            <Icon type='info-circle-o' /> 演示版本不包括实际课程内容
+          <div>
+            <div className='demo-tip shadow-card'>
+              <Icon type='info-circle-o' /> 演示版本不包括实际课程内容
+            </div>
+
+            <div className='courses-list shadow-card'>
+              <div className='course with-img'>
+                <Icon className='icc' type='video-camera' />
+                <div className='ct'>
+                  <div className='title'>外汇知识</div>
+                  <div className='img' style={backgroundImage: "url(http://i.teamkn.com/i/wtn2Ranl.jpg?imageMogr2/thumbnail/!200x200)"} />
+                  <Icon className='play' type='play-circle' />
+                </div>
+              </div>
+              <div className='course'>
+                <Icon className='icc' type='file-excel' />
+                <div className='ct'>
+                  <div className='title'>汇率换算表</div>
+                </div>
+              </div>
+              <div className='course with-img'>
+                <Icon className='icc' type='file-pdf' />
+                <div className='ct'>
+                  <div className='title'>国际汇市</div>
+                  <div className='img' style={backgroundImage: "url(http://i.teamkn.com/i/mWGdDLFe.jpg?imageMogr2/thumbnail/!200x200)"} />
+                </div>
+              </div>
+              <div className='course'>
+                <Icon className='icc' type='share-alt' />
+                <div className='ct'>
+                  <div className='title'>外汇兑换流程</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <a className='demo-test' href='http://csm.mindpin.com/test' target='_blank'>
+                <Icon type='check' /> 进行线上测验
+              </a> 
+            </div>
           </div>
       }
     </div>

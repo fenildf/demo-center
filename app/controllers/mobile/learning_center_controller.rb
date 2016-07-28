@@ -131,6 +131,15 @@ class Mobile::LearningCenterController < ApplicationController
     }
   end
 
+  def solve
+    points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')
+
+    @component_name = 'MobileLearningSubjectsTargetSolve'
+    @component_data = {
+      points: points_data
+    }
+  end
+
   def target_search
     if params[:keywords] == nil
       return render json: {

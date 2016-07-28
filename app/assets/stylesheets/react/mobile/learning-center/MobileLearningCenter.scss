@@ -411,6 +411,7 @@ $card-hover-color: #F7FBFF;
     color: #3BB5EA;
     text-align: center;
     display: block;
+    i {margin-right: 10px;}
   }
 }
 
@@ -419,6 +420,89 @@ $card-hover-color: #F7FBFF;
   background-color: #FFF;
   padding: 15px;
   text-align: center;
+
+  &.small {
+    width: calc(33.333333% - 28px / 3);
+    height: 80px;
+    float: left;
+    margin-right: 14px;
+    margin-bottom: 14px;
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .title {
+      height: 35px; line-height: 35px;
+      margin-top: -15px;
+    }
+    .count {
+      border-top: solid 1px #f1f1f1;
+      height: 45px; line-height: 45px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: -15px;
+      margin-right: -15px;
+      color: #666;
+      background-color: $card-hover-color;
+    }
+
+    &.plan {
+      border-left: solid 4px #FFC076;
+    }
+    &.question {
+      border-left: solid 4px #CB84D2;
+    }
+    &.point {
+      border-left: solid 4px $theme-color;
+    }
+  }
+
+  &.curve {
+    width: calc(50% - 7px);
+    float: left;
+    margin-right: 14px;
+    padding: 0;
+    .title {
+      border-bottom: solid 1px #f1f1f1;
+      height: 35px; line-height: 35px;
+    }
+    .ct {
+      padding: 10px;
+    }
+    .img {
+      padding-bottom: 47.2%;
+      background-image: url(http://i.teamkn.com/i/GWA6Mmmd.jpg?imageMogr2/thumbnail/x400);
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+
+  &.nengli {
+    width: calc(50% - 7px);
+    float: left;
+    padding: 0;
+    .title {
+      border-bottom: solid 1px #f1f1f1;
+      height: 35px; line-height: 35px;
+    }
+    .ct {
+      padding: 10px;
+    }
+    .img {
+      padding-bottom: 47.2%;
+      background-image: url(http://i.teamkn.com/i/LS5MOiXt.jpg?imageMogr2/thumbnail/x400);
+      background-position: center center;
+      background-size: cover;
+    }
+  }
+
+  &.progress {
+    float: left;
+    margin-bottom: 14px;
+    width: 100%;
+  }
 }
 
 .mobile-learning-center .messages-list {
@@ -597,14 +681,73 @@ $card-hover-color: #F7FBFF;
     a {
       @include pill_color_button($theme-color);
       float: left;
+      i {margin-right: 10px;}
     }
   }
   .demo-tip {
+    margin-bottom: 15px;
     padding: 15px;
     // background-color: #FFF7E6;
     background-color: #FFFDF7;
     color: #666;
     i {color: #FFAA00;margin-right: 6px;}
+  }
+
+  a.demo-test {
+    @include dark_pill_button;
+    display: inline-block;
+    position: static;
+    background-color: darken(#53E69D, 15%);
+    height: 36px; line-height: 36px;
+    padding: 0 20px;
+    font-size: 14px;
+  }
+
+  .courses-list {
+    margin-bottom: 28px;
+    .course {
+      @include list_item;
+      line-height: 22px;
+      height: 42px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 0;
+      border-bottom: solid 1px #f1f1f1;
+      position: relative;
+
+      i.icc {
+        height: 36px; line-height: 36px;
+        margin-top: 3px; margin-left: 3px;
+        border-radius: 3px;
+        background-color: #D9F3FF;
+        color: $theme-color;
+      }
+
+      &.with-img {
+        height: 42px + 60px + 10px - 5px;
+        i.icc {
+          height: 101px; line-height: 101px;
+        }
+
+        .img {
+          margin-top: -5px;
+          width: 96px;
+          height: 60px;
+          background-size: cover;
+          background-position: center center;
+        }
+
+        i.play {
+          // color: lighten($theme-color, 30%);
+          color: white;
+          font-size: 30px;
+          width: 50px; height: 50px; line-height: 50px;
+          top: 42px; left: 97px;
+          position: absolute;
+          text-shadow: 0 0 3px black;
+        }
+      }
+    }
   }
 }
 
@@ -1608,5 +1751,40 @@ $card-hover-color: #F7FBFF;
         padding: 15px;
       }
     }
+  }
+}
+
+.mobile-learning-center .question-solve {
+  padding: 15px;
+  margin-bottom: 28px;
+  .title {
+    i {
+      color: lighten($theme-color, 20%);
+      margin-right: 10px;
+    }
+  }
+  .tags {
+    overflow: hidden;
+    margin: 15px -15px -15px;
+    border-top: solid 1px #f1f1f1;
+    padding-left: 10px;
+    padding-top: 10px;
+    .tag {
+      float: left;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      height: 24px; line-height: 24px;
+      color: white;
+      background-color: $theme-color;
+      border-radius: 3px;
+      padding: 0 10px;
+      i {margin-right: 10px;}
+    }
+  }
+  .answer {
+    margin: 15px -15px -15px;
+    padding: 15px;
+    border-top: solid 1px #f1f1f1;
+    background-color: $card-hover-color;
   }
 }
