@@ -13,6 +13,7 @@ module.exports = ChatBox = React.createClass
         talkers={@props.talkers}
         messages={@state.messages}
         show_detail={@props.show_detail}
+        open_talker={@props.open_talker}
       />
     </div>
 
@@ -113,6 +114,7 @@ module.exports = ChatBox = React.createClass
               <Message key={idx} 
                 message={message} talker={talker} 
                 show_detail={@props.show_detail(message)}
+                open_talker={@props.open_talker}
               />
           }
         </div>
@@ -123,7 +125,11 @@ Message = React.createClass
     message = @props.message
 
     <div className="message #{message.by}" onClick={@show}>
-      <div className='avatar' style={backgroundImage: "url(#{talker.avatar})"} />
+      <div 
+        className='avatar' 
+        style={backgroundImage: "url(#{talker.avatar})"} 
+        onClick={@open_talker(talker)}
+      />
       <div className='ct'>
         <div className='who-when'>
           <span className='name'>{talker.name}</span>
@@ -207,6 +213,12 @@ Message = React.createClass
   send: (msg)->
     =>
       jQuery(document).trigger('chatbox:send', message: msg)
+
+  open_talker: (talker)->
+    (evt)=>
+      # evt.stopPropagation()
+      # @props.open_talker(talker)
+
 
 ChatBox.Message = Message
 

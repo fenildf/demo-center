@@ -3,17 +3,20 @@
 module.exports = MobileLearningMessagesChannel = React.createClass
   getInitialState: ->
     show_message: null
+    open_talker: null
 
   render: ->
     <div>
       <MobileLearningCenterChatLayout 
         title={@props.messages?.channel?.name}
         back_to='/mobile/learning-center/messages'
+        talkers={@props.talkers}
       >
         <ChatBox
           talkers={@props.talkers}
           messages={@props.messages}
           show_detail={@show_detail}
+          open_talker={@open_talker}
         >
           <ChatBox.Theme 
             channel={@props.messages?.channel}
@@ -29,6 +32,9 @@ module.exports = MobileLearningMessagesChannel = React.createClass
     =>
       @setState show_message: message
       @refs.detail.setState open: true
+
+  open_talker: (talker)->
+    # console.log 'open', talker
 
 Detail = React.createClass
   getInitialState: ->
@@ -93,5 +99,13 @@ Detail = React.createClass
   close: ->
     @setState open: false
 
-
+Talker = React.createClass
+  getInitialState: ->
+    open: true
+  render: ->
+    if @state.open
+      <div className='modal-talker'>
+      </div>
+    else
+      <div />
 

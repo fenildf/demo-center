@@ -1,31 +1,44 @@
 mbot:
   name: '内容助手'
   avatar: 'http://i.teamkn.com/i/B3zcwfwd.jpg?imageMogr2/thumbnail/!100x100'
+  role: '系统助手'
 
 nbot:
   name: '通知助手'
   avatar: 'http://i.teamkn.com/i/dK04NALe.jpg?imageMogr2/thumbnail/!100x100'
+  role: '系统助手'
 
 pbot:
   name: '测验助手'
   avatar: 'http://i.teamkn.com/i/B3zcwfwd.jpg?imageMogr2/thumbnail/!100x100'
+  role: '系统助手'
+  
+u5:
+  name: '周老师'
+  avatar: 'http://i.teamkn.com/i/XSp4QhPJ.png?imageMogr2/thumbnail/!100x100'
+  role: '辅导员'
 
 me:
   name: '我'
   avatar: 'http://i.teamkn.com/i/M4mUaDaT.png?imageMogr2/thumbnail/!100x100'
+  role: '学员'
 
 u1:
   name: '张三'
   avatar: 'http://i.teamkn.com/i/tu8nolng.jpg?imageMogr2/thumbnail/!100x100'
+  role: '学员'
 
 u2:
   name: '李四'
   avatar: 'http://i.teamkn.com/i/tu8nolng.jpg?imageMogr2/thumbnail/!100x100'
+  role: '学员'
 
 u3:
   name: '王五'
   avatar: 'http://i.teamkn.com/i/tu8nolng.jpg?imageMogr2/thumbnail/!100x100'
+  role: '学员'
 
 u4:
   name: '赵六'
   avatar: 'http://i.teamkn.com/i/tu8nolng.jpg?imageMogr2/thumbnail/!100x100'
+  role: '学员'

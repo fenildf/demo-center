@@ -147,6 +147,23 @@ $card-hover-color: #F7FBFF;
   }
 }
 
+@mixin scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {  
+    width: 5px;  
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(white, 0.5);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(black, 0.5); 
+  }
+}
+
 .mobile-learning-center {
   position: absolute;
   top:0;left:0;bottom:0;right:0;
@@ -184,6 +201,10 @@ $card-hover-color: #F7FBFF;
       line-height: $header-bar-height;
       color: white;
       font-weight: bold;
+      text-align: center;
+      &:hover {
+        background-color: rgba(white, 0.1);
+      }
     }
   }
 
@@ -267,20 +288,8 @@ $card-hover-color: #F7FBFF;
     right: 0;
     padding: 14px;
     padding-top: 10px;
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    &::-webkit-scrollbar {  
-      width: 5px;  
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background-color: rgba(white, 0.5);
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: rgba(black, 0.5); 
-    }
+    
+    @include scroller;
   }
 }
 
@@ -1390,20 +1399,7 @@ $card-hover-color: #F7FBFF;
   top:0;left:0;right:0;bottom:0;
   background-color: rgba(black, 0.62);
 
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  &::-webkit-scrollbar {  
-    width: 5px;  
-  }
-  &::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background-color: rgba(white, 0.5);
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(black, 0.5); 
-  }
+  @include scroller;
 
   .modal {
     position: absolute;
@@ -1481,11 +1477,7 @@ $card-hover-color: #F7FBFF;
   }
 }
 
-.modal-message-detail {
-  position: absolute;
-  top:0;left:0;right:0;bottom:0;
-  background-color: white;
-
+@mixin message_detail_header {
   .header {
     height: 50px;
     line-height: 50px;
@@ -1505,7 +1497,23 @@ $card-hover-color: #F7FBFF;
       }
     }
     i.r {top:0;right:0;}
+
+    .title {
+      font-size: 16px;
+      text-align: center;
+      margin-left: 50px; margin-right: 50px;
+      color: white;
+      font-weight: bold;
+    }
   }
+}
+
+.modal-message-detail {
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: white;
+
+  @include message_detail_header;
 
   .share-to {
     position: absolute;
@@ -1739,6 +1747,87 @@ $card-hover-color: #F7FBFF;
 
           }
 
+        }
+      }
+    }
+  }
+}
+
+.modal-talkers {
+  position: absolute;
+  top:0;left:0;right:0;bottom:0;
+  background-color: white;
+
+  @include message_detail_header;
+
+  .talkers {
+    position: absolute;
+    top: 50px;left:0;right:0;bottom:0;
+
+    @include scroller;
+
+    .multi-chat {
+      @include dark_pill_button;
+      position: static;
+      top: 0; left: 0;
+      display: inline-block;
+      margin-top: 15px;
+      height: 32px; line-height: 32px;
+      background-color: #1ECE77;
+      font-size: 14px;
+    }
+
+    .talker {
+      height: 50px;
+      border-bottom: solid 1px #ddd;
+      cursor: pointer;
+
+      .avatar {
+        width: 32px; height: 32px;
+        border-radius: 4px;
+        background-size: cover;
+        background-position: center center;
+        float: left;
+        margin-top: 9px; margin-left: 9px;
+      }
+      .role {
+        float: left;
+        margin-left: 10px;
+        span {
+          display: inline-block;
+          height: 18px; line-height: 18px;
+          border-radius: 2px;
+          color: white;
+          background-color: #64D9A3;
+          margin-top: 16px;
+          padding:0 5px;
+          font-size: 12px;
+        
+          &.system {
+            background-color: #FEC72E;
+          }
+        }
+      }
+      .name {
+        float: left;
+        height: 50px; line-height: 50px;
+        margin-left: 10px;
+      }
+      .icc {
+        float: right;
+        width: 50px;height:50px;line-height:50px;
+        text-align: center;
+        color: white;
+        display: none;
+        font-size: 20px;
+      }
+
+      &.selected {
+        background-color: #41C4FE;
+        color: #fff;
+        border-bottom: solid 1px rgba(white, 0.5);
+        .icc {
+          display: block;
         }
       }
     }
