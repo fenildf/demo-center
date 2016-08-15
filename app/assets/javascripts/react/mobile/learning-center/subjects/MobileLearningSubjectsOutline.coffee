@@ -198,7 +198,7 @@ SubjectCourses = React.createClass
             </div>
 
             <div className='courses-list shadow-card'>
-              <div className='course with-img'>
+              <div className='course with-img' onClick={-> Turbolinks.visit '/mobile/learning-center/subjects/outline/video'}>
                 <Icon className='icc' type='video-camera' />
                 <div className='ct'>
                   <div className='title'>外汇知识</div>
@@ -212,7 +212,7 @@ SubjectCourses = React.createClass
                   <div className='title'>汇率换算表</div>
                 </div>
               </div>
-              <div className='course with-img'>
+              <div className='course with-img' onClick={-> Turbolinks.visit '/mobile/learning-center/subjects/outline/ppt'}>
                 <Icon className='icc' type='file-pdf' />
                 <div className='ct'>
                   <div className='title'>国际汇市</div>

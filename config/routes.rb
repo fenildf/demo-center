@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
     get '/learning-center/subjects',            to: 'learning_center#subjects'
     get '/learning-center/subjects/outline',    to: 'learning_center#subjects_outline'
+    get '/learning-center/subjects/outline/video', to: 'learning_center#subjects_outline_video'
+    get '/learning-center/subjects/outline/ppt', to: 'learning_center#subjects_outline_ppt'
     get '/learning-center/subjects/posts',      to: 'learning_center#subjects_posts'
     get '/learning-center/subjects/posts/all',  to: 'learning_center#subjects_posts_all'
     get '/learning-center/subjects/target',     to: 'learning_center#subjects_target'

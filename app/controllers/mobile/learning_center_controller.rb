@@ -103,6 +103,14 @@ class Mobile::LearningCenterController < ApplicationController
     }
   end
 
+  def subjects_outline_video
+    @component_name = 'MobileLearningSubjectsOutlineVideo'
+  end
+
+  def subjects_outline_ppt
+    @component_name = 'MobileLearningSubjectsOutlinePPT'
+  end
+
   def subjects_posts
     posts_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-posts.yaml')
     points_data = YAML.load_file File.join(Rails.root, 'demo-data', 'learning-center', 'common-points.yaml')

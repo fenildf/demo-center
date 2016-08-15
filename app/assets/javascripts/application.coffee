@@ -23,6 +23,8 @@ window.SubjectsTree                   = require 'react/mobile/learning-center/su
 window.MobileLearningSubjects         = require 'react/mobile/learning-center/subjects/MobileLearningSubjects'
 window.MobileLearningSubjectsOutline  = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsOutline'
 window.MobileLearningSubjectsPosts    = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsPosts'
+window.MobileLearningSubjectsOutlineVideo = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsOutlineVideo'
+window.MobileLearningSubjectsOutlinePPT = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsOutlinePPT'
 window.MobileLearningSubjectsPostsAll = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsPostsAll'
 window.MobileLearningSubjectsTarget   = require 'react/mobile/learning-center/subjects/MobileLearningSubjectsTarget'
 
