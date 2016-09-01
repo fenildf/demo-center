@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
     get '/learning-center/todo', to: 'learning_center#todo'
     # get '/learning-center/login', to: 'learning_center#login'
-
-    post '/bearychat/outgoing_robot', to: 'bearychat#outgoing_robot'
   end
+
+  # bearychat 机器人 demo
+  post '/bearychat/weather', to: 'bearychat#weather'
 end
