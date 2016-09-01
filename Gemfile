@@ -78,3 +78,5 @@ gem "mina", "0.3.7"
 gem 'mina_util',
   github: "mindpin/mina_util",
   ref: "25f36fd"
+
+gem "rest-client", "2.0.0"
