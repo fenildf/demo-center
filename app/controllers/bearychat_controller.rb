@@ -36,23 +36,8 @@ class BearychatController < ApplicationController
               color: '#FFD596'
             },
             {
-              title: '平均评分',
-              text: "#{subject['rating']['average']}",
-              color: '#FFD596'
-            },
-            {
-              title: '电影类型',
-              text: detail['genres'].join(' '),
-              color: '#FFD596'
-            },
-            {
-              title: '年份',
-              text: detail['year'],
-              color: '#FFD596'
-            },
-            {
-              title: '国家',
-              text: detail['countries'].join(' '),
+              title: '基本信息',
+              text: "评分：#{subject['rating']['average']}，类型：#{detail['genres'].join(' ')}，年份：#{detail['year']}，国家：#{detail['countries'].join(' ')}",
               color: '#FFD596'
             },
             {
