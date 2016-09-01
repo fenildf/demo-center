@@ -1,9 +1,85 @@
 class BearychatController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
+  def movie
+    # /bearychat/movie?text=!电影 大鱼海棠&trigger_word=!电影
+
+    text = params[:text]
+    trigger_word = params[:trigger_word]
+
+    name = text.gsub(trigger_word, "").strip
+    url = "https://api.douban.com/v2/movie/search?q=#{URI.encode(name)}"
+
+    begin
+      response = RestClient.get(url)
+      data = JSON.parse(response.to_str)
+
+      if data['subjects'].length > 0
+        subject = data['subjects'][0]
+
+        id = subject['id']
+        detail = RestClient.get("https://api.douban.com/v2/movie/subject/#{id}")
+        detail = JSON.parse(detail.to_str)
+        
+        return render :json => {
+          text: "name 查询结果",
+          attachments: [
+            {
+              color: '#FFD596',
+              images: [
+                {url: detail['images']['large']}
+              ]
+            },
+            {
+              title: '豆瓣页面',
+              text: detail['alt'],
+              color: '#FFD596'
+            },
+            {
+              title: '平均评分',
+              text: "#{subject['rating']['average']}",
+              color: '#FFD596'
+            },
+            {
+              title: '电影类型',
+              text: detail['genres'].join(' '),
+              color: '#FFD596'
+            },
+            {
+              title: '年份',
+              text: detail['year'],
+              color: '#FFD596'
+            },
+            {
+              title: '国家',
+              text: detail['countries'].join(' '),
+              color: '#FFD596'
+            },
+            {
+              title: '简介',
+              text: detail['summary'],
+              color: '#FFD596'
+            }
+          ]
+        }
+
+      else
+        return render :json => {
+          text: "没有查询到电影信息"
+        }
+      end
+
+    rescue  => e
+      return render :json => {
+        text: "没有查询到电影信息"
+      }
+    end
+
+  end
+
   def weather
-  	# params[:text] = "!天气 北京"
-  	# params[:trigger_word] = "!天气"
+    # params[:text] = "!天气 北京"
+    # params[:trigger_word] = "!天气"
 
     text         = params[:text]
     trigger_word = params[:trigger_word]
