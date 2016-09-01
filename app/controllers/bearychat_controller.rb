@@ -22,7 +22,7 @@ class BearychatController < ApplicationController
         detail = JSON.parse(detail.to_str)
         
         return render :json => {
-          text: "name 查询结果",
+          text: "#{name} 查询结果",
           attachments: [
             {
               color: '#FFD596',
