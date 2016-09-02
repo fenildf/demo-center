@@ -119,7 +119,9 @@ class BearychatController < ApplicationController
         }
       end
 
-      system('/home/mina/demo-center-youthedu/auto_mina_deploy.sh')
+      FileUtils.cd '/home/mina/demo-center-youthedu' do
+        system('/home/mina/demo-center-youthedu/auto_mina_deploy.sh')
+      end
 
       return render json: {
         text: '开始部署',
