@@ -120,7 +120,7 @@ class BearychatController < ApplicationController
         text: '开始部署',
         attachments: [
           {
-            title: '签出地址'
+            title: '签出地址',
             text: 'https://github.com/mindpin/demo-center-youthedu',
           },
           {
