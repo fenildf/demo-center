@@ -109,6 +109,9 @@ class BearychatController < ApplicationController
     # user_name=ben7th
     # channel_name=服务部署
 
+    user_name = params[:user_name]
+    channel_name = params[:channel_name]
+
     begin
       if user_name != 'ben7th' or channel_name != '服务部署'
         return render json: {

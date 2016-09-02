@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   post '/bearychat/weather',  to: 'bearychat#weather'
   post '/bearychat/movie',    to: 'bearychat#movie'
   post '/bearychat/deploy',   to: 'bearychat#deploy'
+  get '/bearychat/deploy',   to: 'bearychat#deploy'
 end
