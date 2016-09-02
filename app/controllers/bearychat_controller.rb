@@ -119,6 +119,8 @@ class BearychatController < ApplicationController
         }
       end
 
+      system('/home/mina/demo-center-youthedu/auto_mina_deploy.sh')
+
       return render json: {
         text: '开始部署',
         attachments: [
