@@ -95,9 +95,43 @@ class BearychatController < ApplicationController
         }
       end
 
-    rescue  => e
+    rescue => e
       return render :json => {
         text: "没有查询到天气信息"
+      }
+    end
+  end
+
+  def deploy
+    # /bearychat/deploy
+    # text=!deploy
+    # trigger_word=!deploy
+    # user_name=ben7th
+    # channel_name=服务部署
+
+    begin
+      if user_name != 'ben7th' or channel_name != '服务部署'
+        return render json: {
+          text: '没有部署权限，目前只能由 ben7th 运行'
+        }
+      end
+
+      return render json: {
+        text: '开始部署',
+        attachments: [
+          {
+            title: '签出地址'
+            text: 'https://github.com/mindpin/demo-center-youthedu',
+          },
+          {
+            title: '签出分支',
+            text: 'master'
+          }
+        ]
+      }
+    rescue => e
+      return render json: {
+        text: '机器人请求异常'
       }
     end
   end

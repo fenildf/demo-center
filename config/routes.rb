@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   end
 
   # bearychat 机器人 demo
-  post '/bearychat/weather', to: 'bearychat#weather'
-  post '/bearychat/movie', to: 'bearychat#movie'
+  post '/bearychat/weather',  to: 'bearychat#weather'
+  post '/bearychat/movie',    to: 'bearychat#movie'
+  post '/bearychat/deploy',   to: 'bearychat#deploy'
 end
