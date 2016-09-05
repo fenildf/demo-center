@@ -1,0 +1,37 @@
+- project: '互联网金融（旅游）项目'
+  pimgeek: '进行非业务功能的沟通，完善需求规格'
+  fushang318: '进行非业务功能的开发推进'
+
+- project: '教育云平台'
+
+- project: '企业即时通信'
+  ben7th: '进行评估分析报告的撰写'
+  blackdust: '进行即时通信技术验证原型开发'
+  AlanShan: '进行即时通信技术验证原型开发'
+  hengtangan2025: '进行即时通信技术验证原型开发'
+
+- project: '电子病历录入'
+  李雨桐: '进一步沟通'
+
+- project: '青少年教育辅导'
+  ben7th: '进行下单选课和助教陪读场景 DEMO 的前端开发'
+  chilliza: '进行下单选课和助教陪读场景的流程和界面设计'
+  blackdust: '进行即时通信技术验证原型开发'
+  AlanShan: '进行即时通信技术验证原型开发'
+  hengtangan2025: '进行即时通信技术验证原型开发'
+
+- project: '微信订阅号推广'
+  ben7th: '进行素材收集和编审工作'
+  fushang318: '提供文章素材'
+  pimgeek: '提供文章素材'
+  chilliza: '提供文章素材'
+  destinyd: '提供文章素材'
+  blackdust: '提供文章素材'
+  AlanShan: '提供文章素材'
+  hengtangan2025: '提供文章素材'
+  李雨桐: '提供文章素材'
+
+- project: '服务网站架设'
+  destinyd: '根据 kc 源代码修改出一个用于承载课程内容，并以 blog 形式作为前端的网站'
+  pimgeek: '进行域名备案'
+  blackdust: '进行 ruby & rails 助教问题收集'

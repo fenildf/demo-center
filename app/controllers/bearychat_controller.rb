@@ -59,7 +59,6 @@ class BearychatController < ApplicationController
         text: "没有查询到电影信息"
       }
     end
-
   end
 
   def weather
@@ -141,5 +140,36 @@ class BearychatController < ApplicationController
         text: '机器人请求异常'
       }
     end
+  end
+
+  def task
+    # /bearychat/task
+    # text=!task [member]
+    # trigger_word=!task
+    # user_name=ben7th
+
+    text         = params[:text]
+
+    user_name = params[:user_name]
+    member = text.gsub('!task', '').strip
+    user_name = member if member.present?
+
+    projects = YAML.load_file File.join(Rails.root, 'demo-data', 'tasks.yaml')
+
+    attachments = []
+    projects.each { |p|
+      if t = p[user_name]
+        attachments << {
+          title: p['project'],
+          text: t
+        }
+      end
+    }
+
+
+    return render json: {
+      text: "#{user_name} 目前有以下工作：",
+      attachments: attachments
+    }
   end
 end
