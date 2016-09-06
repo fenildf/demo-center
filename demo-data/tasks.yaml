@@ -33,5 +33,8 @@
 
 - project: '服务网站架设'
   destinyd: '根据 kc 源代码修改出一个用于承载课程内容，并以 blog 形式作为前端的网站'
-  pimgeek: '进行域名备案'
+  pimgeek: '进行 teamkn.com 等域名备案'
   blackdust: '进行 ruby & rails 助教问题收集'
+
+- project: '内蒙古农信营改增配套培训系统'
+  pimgeek: '从功能需求，内容，使用人员名单范围等方面保持跟进'
